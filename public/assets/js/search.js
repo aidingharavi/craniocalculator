@@ -40,7 +40,7 @@
           index = d.tools.map((t) => ({
             t,
             group: groups[t.group] || "",
-            href: t.kind === "model" ? `/calculators/model?id=${encodeURIComponent(t.id)}` : t.href,
+            href: t.href || `/calculators/model?id=${encodeURIComponent(t.id)}`,
             fields: [
               { w: 6, words: words(t.name) },
               { w: 4, words: words((t.keywords || []).join(" ")) },

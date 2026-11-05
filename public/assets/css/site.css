@@ -536,3 +536,12 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 /* Research page: subscribe box above the digest */
 .research-layout .subscribe-box { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
 .research-layout .subscribe-box h2 { font-size: var(--t-lg); }
+
+/* CranioSTRIP form */
+.cs-step { margin: 24px 0 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-2); }
+.cs-step:first-child { margin-top: 0; }
+.cs-checks { border: 0; padding: 0; margin: 0 0 16px; display: grid; gap: 8px; }
+.cs-checks legend { font-weight: 500; font-size: .95rem; margin-bottom: 8px; padding: 0; }
+.cs-checks .check { display: flex; gap: 10px; align-items: flex-start; font-weight: 400; margin: 0; }
+.cs-checks .check input { margin-top: 2px; flex: none; }
+@media (min-width: 861px) { #cs-calc > [aria-live] { position: sticky; top: 24px; } }

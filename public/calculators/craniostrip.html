@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CranioSTRIP: Transfusion Risk and Volume in Craniosynostosis Surgery | CranioCalc</title>
+<meta name="description" content="CranioSTRIP predicts the risk of perioperative transfusion and the expected transfusion volume (mL/kg) for children under 3 years undergoing craniosynostosis surgery. Machine learning models developed on ACS NSQIP Pediatric data.">
+<link rel="canonical" href="https://craniocalc.com/calculators/craniostrip">
+<meta property="og:title" content="CranioSTRIP: Transfusion Risk and Volume in Craniosynostosis Surgery | CranioCalc">
+<meta property="og:description" content="CranioSTRIP predicts the risk of perioperative transfusion and the expected transfusion volume (mL/kg) for children under 3 years undergoing craniosynostosis surgery. Machine learning models developed on ACS NSQIP Pediatric data.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://craniocalc.com/calculators/craniostrip">
+<meta property="og:image" content="https://craniocalc.com/apple-touch-icon.png">
+<meta name="theme-color" content="#f2f4f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10171c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=202611050102">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="CranioCalc home">
+      <img src="/assets/img/logo.svg" alt="" width="40" height="39">
+      <span>CranioCalc</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/calculators/" aria-current="page">Calculators</a></li>
+        <li><a href="/research">Research</a></li>
+        <li><a href="/collaboration">Collaboration</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <div class="site-search" role="search">
+      <label for="site-search-input" class="visually-hidden">Search calculators</label>
+      <span class="ss-field">
+        <svg class="ss-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.6 12.6L17 17"/></svg>
+        <input id="site-search-input" type="search" placeholder="Search calculators" autocomplete="off" spellcheck="false"
+          role="combobox" aria-expanded="false" aria-controls="site-search-results" aria-autocomplete="list">
+      </span>
+      <ul id="site-search-results" role="listbox" aria-label="Matching calculators" hidden></ul>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a> / Predictive Models</p>
+    <h1>CranioSTRIP <span class="badge live" style="vertical-align:middle">Live</span></h1>
+    <p class="lede">Craniosynostosis Surgery Transfusion Requirement Inference Platform. Estimates the risk that a child needs a perioperative transfusion and, if so, how much. Results update as you type.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="cs-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <h3 class="small cs-step">Patient</h3>
+      <div class="field-row">
+        <div class="field">
+          <label for="cs-age">Age</label>
+          <div class="unit-input"><input type="number" id="cs-age" inputmode="decimal" min="0" max="36" step="0.1" value="6"><span>months</span></div>
+        </div>
+        <div class="field">
+          <label for="cs-weight">Current weight</label>
+          <div class="unit-input"><input type="number" id="cs-weight" inputmode="decimal" min="1" max="25" step="0.1" value="7.5"><span>kg</span></div>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="cs-ga">Gestational age at birth</label>
+          <div class="unit-input"><input type="number" id="cs-ga" inputmode="decimal" min="24" max="40" step="0.1" value="40"><span>weeks</span></div>
+          <p class="hint">Use 40 for term and post-term births.</p>
+        </div>
+        <div class="field">
+          <label for="cs-sex">Sex</label>
+          <select id="cs-sex"><option value="1">Male</option><option value="0">Female</option></select>
+        </div>
+      </div>
+
+      <h3 class="small cs-step">Preoperative status</h3>
+      <div class="field-row">
+        <div class="field">
+          <label for="cs-asa">ASA physical status</label>
+          <select id="cs-asa">
+            <option value="0">I: Healthy</option>
+            <option value="1" selected>II: Mild systemic disease</option>
+            <option value="2">III: Severe systemic disease</option>
+            <option value="3">IV: Constant threat to life</option>
+            <option value="4">V: Not expected to survive</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cs-cardiac">NSQIP cardiac risk factors</label>
+          <select id="cs-cardiac"><option value="0">None</option><option value="1">Minor</option><option value="2">Major</option><option value="3">Severe</option></select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="cs-ivh">Intraventricular hemorrhage</label>
+        <select id="cs-ivh"><option value="0">None</option><option value="1">Grade 1</option><option value="2">Grade 2</option><option value="3">Grade 3</option><option value="4">Grade 4</option></select>
+      </div>
+      <fieldset class="field cs-checks">
+        <legend>Comorbidities</legend>
+        <label class="check"><input type="checkbox" name="comorbid" value="BPD_CLD"> Bronchopulmonary dysplasia / chronic lung disease</label>
+        <label class="check"><input type="checkbox" name="comorbid" value="GI_DISEASE"> Esophageal or gastrointestinal disease</label>
+        <label class="check"><input type="checkbox" name="comorbid" value="HEMATOLOGICAL_DISORDER"> Hematological disorder</label>
+        <label class="check"><input type="checkbox" name="comorbid" value="NEUROMUSCULAR_DISORDER"> Neuromuscular disorder</label>
+        <label class="check"><input type="checkbox" name="comorbid" value="PREVIOUS_CARDIAC_SURGERY"> Previous cardiac surgery</label>
+        <label class="check"><input type="checkbox" name="comorbid" value="SEIZURE_DISORDER"> Seizure disorder</label>
+        <label class="check"><input type="checkbox" name="comorbid" value="STRUCTURAL_CNS_ABNORMALITY"> Structural CNS abnormality</label>
+        <label class="check"><input type="checkbox" name="comorbid" value="STRUCTURAL_PULMONARY_ABNORMALITY"> Structural pulmonary abnormality</label>
+      </fieldset>
+      <fieldset class="field cs-checks">
+        <legend>Preoperative support</legend>
+        <label class="check"><input type="checkbox" name="support" value="OXYGEN_SUPPORT"> Supplemental oxygen (within 24 hours)</label>
+        <label class="check"><input type="checkbox" name="support" value="VENT_DEPENDENCE"> Ventilator dependence (within 48 hours)</label>
+        <label class="check"><input type="checkbox" name="support" value="TRACHEOSTOMY"> Tracheostomy</label>
+        <label class="check"><input type="checkbox" name="support" value="CPR_WITHIN_7D"> CPR (within 7 days)</label>
+        <label class="check"><input type="checkbox" name="support" value="IONOTROPIC_SUPPORT"> Inotropic support at time of surgery</label>
+        <label class="check"><input type="checkbox" name="support" value="TRANSFUSION_48H_BEFORE"> Transfusion (within 48 hours)</label>
+        <label class="check"><input type="checkbox" name="support" value="NUTRITIONAL_SUPPORT"> Enteral feeding or TPN</label>
+      </fieldset>
+
+      <h3 class="small cs-step">Laboratory values</h3>
+      <div class="field-row">
+        <div class="field">
+          <label for="cs-hct">Preoperative hematocrit</label>
+          <div class="unit-input"><input type="number" id="cs-hct" inputmode="decimal" min="15" max="60" step="0.1" value="33"><span>%</span></div>
+        </div>
+        <div class="field">
+          <label for="cs-plt">Preoperative platelets</label>
+          <div class="unit-input"><input type="number" id="cs-plt" inputmode="decimal" min="20" max="1000" step="1" value="300"><span>×10⁹/L</span></div>
+        </div>
+      </div>
+
+      <h3 class="small cs-step">Planned surgery</h3>
+      <div class="field">
+        <label for="cs-approach">Surgical approach</label>
+        <select id="cs-approach">
+          <option value="OPEN_APPROACH">Open</option>
+          <option value="MIS_APPROACH">Minimally invasive (endoscopic)</option>
+          <option value="COMBINED">Combined minimally invasive and open</option>
+        </select>
+      </div>
+      <div class="field"><label class="check-input"><input type="checkbox" id="cs-multi"> Multiple sutures involved</label></div>
+      <div class="field"><label class="check-input"><input type="checkbox" id="cs-graft"> Bone graft planned</label></div>
+
+      <h3 class="small cs-step">Settings</h3>
+      <div class="field">
+        <label for="cs-threshold">Risk threshold</label>
+        <select id="cs-threshold">
+          <option value="0.43">High sensitivity (43%)</option>
+          <option value="0.50">Balanced (50%)</option>
+        </select>
+        <p class="hint">Patients at or above the threshold are classed as elevated risk, and a volume estimate is shown.</p>
+      </div>
+      <div class="field"><label class="check-input"><input type="checkbox" id="cs-always"> Always show the volume estimate</label></div>
+    </form>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="cs-out">
+        <div class="value">–</div>
+        <div class="grade muted">Loading the model…</div>
+      </div>
+      <div class="readout" id="cs-vol" style="margin-top:32px"></div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="margin-top:56px">
+  <h2>Model Card</h2>
+  <dl class="card-grid">
+    <dt>Intended use</dt>
+    <dd>Research and education: estimating perioperative transfusion risk and volume for children under 36 months undergoing craniosynostosis surgery, to inform discussion and planning. Not a substitute for clinical judgment, crossmatch protocols, or intraoperative monitoring.</dd>
+    <dt>Outcomes predicted</dt>
+    <dd><strong>Stage 1:</strong> any perioperative blood transfusion (probability). <strong>Stage 2:</strong> transfusion volume in mL/kg among children who are transfused, reported as a median with an interquartile range. Volume estimates are unreliable for children who do not end up needing transfusion.</dd>
+    <dt>Development data</dt>
+    <dd>American College of Surgeons National Surgical Quality Improvement Program Pediatric (ACS NSQIP-P) data. Stage 1 is a LightGBM gradient-boosted tree classifier with 26 preoperative inputs. Stage 2 is an NGBoost model with a log-normal output and 22 inputs, trained on transfused patients. Both were tuned and evaluated with 5-fold nested cross-validation.</dd>
+    <dt>Validation</dt>
+    <dd>
+      <table class="metrics">
+        <thead><tr><th>Stage 1: transfusion risk</th><th>Nested CV mean (95% CI)</th></tr></thead>
+        <tbody>
+          <tr><td>AUC-ROC</td><td>0.77 (0.75–0.78)</td></tr>
+          <tr><td>AUC-PR</td><td>0.74 (0.73–0.75)</td></tr>
+          <tr><td>Brier score</td><td>0.20 (0.19–0.20)</td></tr>
+          <tr><td>Calibration slope</td><td>1.05 (0.94–1.16)</td></tr>
+          <tr><td>Sensitivity / specificity, 43% threshold</td><td>0.81 / 0.60</td></tr>
+          <tr><td>Sensitivity / specificity, 50% threshold</td><td>0.74 / 0.68</td></tr>
+        </tbody>
+      </table>
+      <table class="metrics" style="margin-top:16px">
+        <thead><tr><th>Stage 2: transfusion volume</th><th>Nested CV mean (95% CI)</th></tr></thead>
+        <tbody>
+          <tr><td>Median absolute error</td><td>6.9 mL/kg (6.6–7.1)</td></tr>
+          <tr><td>Mean absolute error</td><td>10.4 mL/kg (10.0–10.8)</td></tr>
+          <tr><td>Interquartile range coverage (target 50%)</td><td>53% (52–53%)</td></tr>
+          <tr><td>Calibration slope (median)</td><td>1.35 (1.03–1.66)</td></tr>
+        </tbody>
+      </table>
+    </dd>
+    <dt>Limitations</dt>
+    <dd>
+      <ul>
+        <li>Developed on registry data from participating US hospitals; performance may differ at other centers and with different blood management protocols.</li>
+        <li>Inputs are limited to preoperative variables recorded in ACS NSQIP-P. Operative details such as duration, use of tranexamic acid, and intraoperative blood loss are not included.</li>
+        <li>Validated for ages 0 to 36 months, weights 1 to 25 kg, gestational age 24 to 40 weeks, hematocrit 15 to 60%, and platelets 20 to 1,000 ×10⁹/L.</li>
+      </ul>
+    </dd>
+    <dt>How to cite</dt>
+    <dd>Deng J, Gharavi A, Heybati K, Haile D, Ahn ES, Mardini S, Gibreel W. Development and nested cross-validation of machine learning models for predicting transfusion requirements in pediatric craniosynostosis surgery. <em>J Plast Reconstr Aesthet Surg.</em> 2026;118:209–220. <a href="https://doi.org/10.1016/j.bjps.2026.05.033" target="_blank" rel="noopener">doi:10.1016/j.bjps.2026.05.033</a>. <a href="https://pubmed.ncbi.nlm.nih.gov/42214978/" target="_blank" rel="noopener">PubMed 42214978</a>.</dd>
+  </dl>
+  <p class="disclaimer small muted measure" style="margin-top:24px">The American College of Surgeons National Surgical Quality Improvement Program and the hospitals participating in the ACS NSQIP are the source of the data used herein; they have not verified and are not responsible for the statistical validity of the data analysis or the conclusions derived by the authors.</p>
+  <p class="notice measure" style="margin-top:16px">For research and education. Not an FDA-cleared device. Predictions describe populations similar to the development cohort and should not be the sole basis for any clinical decision. Calculations run in your browser; nothing you enter is sent anywhere.</p>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>For research and education.</strong> Nothing on this site is medical advice or a substitute for clinical judgment. Calculators and models are not FDA-cleared devices. Do not enter identifiable patient information.</p>
+      <p>&copy; <span data-year></span> CranioCalc. Literature data from PubMed (US National Library of Medicine).</p>
+    </div>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/legal">Terms and Privacy</a></li>
+      <li><a href="mailto:hello@craniocalc.com">hello@craniocalc.com</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=202611050102" defer></script>
+<script src="/assets/js/search.js?v=202611050102" defer></script>
+<script src="/assets/js/craniostrip.js?v=202611050102" defer></script>
+<script src="/assets/js/craniostrip-page.js?v=202611050102" defer></script>
+</body>
+</html>

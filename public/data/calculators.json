@@ -222,7 +222,7 @@
       "group": "predictive",
       "kind": "model",
       "name": "CranioSTRIP",
-      "summary": "Machine learning model estimating perioperative transfusion risk in craniosynostosis surgery.",
+      "summary": "Predicts the risk of perioperative transfusion and the expected transfusion volume in craniosynostosis surgery, for children under 3 years.",
       "keywords": [
         "craniosynostosis",
         "transfusion",
@@ -234,8 +234,8 @@
         "machine learning",
         "prediction model"
       ],
-      "status": "in-development",
-      "dataSource": "institutional",
+      "status": "live",
+      "dataSource": "nsqip",
       "version": "",
       "updated": "",
       "embedUrl": "",
@@ -245,9 +245,9 @@
       "development": "",
       "validation": [],
       "limitations": [],
-      "citation": "",
+      "citation": "Deng J, Gharavi A, Heybati K, et al. J Plast Reconstr Aesthet Surg. 2026;118:209-220.",
       "code": "",
-      "validationOpen": true
+      "href": "/calculators/craniostrip"
     },
     {
       "id": "cleft-speech",

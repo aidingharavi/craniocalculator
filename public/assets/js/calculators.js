@@ -8,7 +8,7 @@
     planned: '<span class="badge">Planned</span>',
   };
   const badge = (t) => BADGE[t.status] || BADGE.planned;
-  const hrefFor = (t) => (t.kind === "model" ? `/calculators/model?id=${encodeURIComponent(t.id)}` : t.href);
+  const hrefFor = (t) => t.href || `/calculators/model?id=${encodeURIComponent(t.id)}`;
 
   // Groups with "showSummary": false list names only.
   const row = (t, g) =>
@@ -146,6 +146,7 @@
       root.innerHTML = `<h1>Model Not Found</h1><p>There's no model with that name. <a href="/calculators/">See All Calculators</a>.</p>`;
       return;
     }
+    if (t.href) return location.replace(t.href); // models with their own page
     document.title = `${t.name} | CranioCalc`;
     const group = d.groups.find((g) => g.id === t.group) || {};
     const live = t.status === "live";
