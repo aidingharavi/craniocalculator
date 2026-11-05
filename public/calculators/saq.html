@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Synkinesis Assessment Questionnaire (SAQ) Calculator | CranioCalc</title>
+<meta name="description" content="Score the Synkinesis Assessment Questionnaire, a 9-item patient-reported measure of facial synkinesis.">
+<link rel="canonical" href="https://craniocalc.com/calculators/saq">
+<meta property="og:title" content="Synkinesis Assessment Questionnaire (SAQ) Calculator | CranioCalc">
+<meta property="og:description" content="Score the Synkinesis Assessment Questionnaire, a 9-item patient-reported measure of facial synkinesis.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://craniocalc.com/calculators/saq">
+<meta property="og:image" content="https://craniocalc.com/apple-touch-icon.png">
+<meta name="theme-color" content="#f2f4f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10171c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=202611051201">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="CranioCalc home">
+      <picture class="logo-mark">
+        <source srcset="/assets/img/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="/assets/img/logo-light.png" alt="" width="40" height="39">
+      </picture>
+      <span>CranioCalc</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/calculators/" aria-current="page">Calculators</a></li>
+        <li><a href="/research">Research</a></li>
+        <li><a href="/collaboration">Collaboration</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <div class="site-search" role="search">
+      <label for="site-search-input" class="visually-hidden">Search calculators</label>
+      <span class="ss-field">
+        <svg class="ss-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.6 12.6L17 17"/></svg>
+        <input id="site-search-input" type="search" placeholder="Search calculators" autocomplete="off" spellcheck="false"
+          role="combobox" aria-expanded="false" aria-controls="site-search-results" aria-autocomplete="list">
+      </span>
+      <ul id="site-search-results" role="listbox" aria-label="Matching calculators" hidden></ul>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Synkinesis Assessment Questionnaire</h1>
+    <p class="lede">Nine-item patient-reported measure of synkinesis after facial nerve injury.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="saq-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <p class="hint" style="margin-top:0">Rate how often or how severely each occurs, from 1 (seldom or not at all) to 5 (all the time or severely).</p>
+      <div class="field"><label for="saq-1">1. Eye closes when smiling</label><select id="saq-1" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-2">2. Eye closes when speaking</label><select id="saq-2" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-3">3. Eye closes when whistling or puckering the lips</label><select id="saq-3" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-4">4. Neck tightens when smiling</label><select id="saq-4" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-5">5. Face tightens when closing the eyes</label><select id="saq-5" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-6">6. Corner of the mouth moves when closing the eye</label><select id="saq-6" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-7">7. Neck tightens when closing the eyes</label><select id="saq-7" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-8">8. Eye waters when eating</label><select id="saq-8" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-9">9. Chin dimples when moving the face</label><select id="saq-9" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">SAQ score = (sum of the 9 items ÷ 45) × 100</span></p>
+      <p>Higher scores mean more frequent or severe synkinesis. Because each item is rated 1 to 5, the lowest possible score is 20. The questionnaire is commonly used to track response to chemodenervation, neuromuscular retraining, and selective neurectomy.</p>
+      <p>Items are paraphrased here for entering responses. For patient administration and research, use the original instrument.</p>
+      <p class="small muted">Source: Mehta RP, Wernick Robinson M, Hadlock TA. Validation of a synkinesis assessment questionnaire. <em>Laryngoscope.</em> 2007;117(5):923–926. <a href="https://doi.org/10.1097/MLG.0b013e3180412460" target="_blank" rel="noopener">doi:10.1097/MLG.0b013e3180412460</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="saq-out"><div class="value">–</div></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>For research and education.</strong> Nothing on this site is medical advice or a substitute for clinical judgment. Calculators and models are not FDA-cleared devices. Do not enter identifiable patient information.</p>
+      <p>&copy; <span data-year></span> CranioCalc. Literature data from PubMed (US National Library of Medicine).</p>
+    </div>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/legal">Terms and Privacy</a></li>
+      <li><a href="mailto:hello@craniocalc.com">hello@craniocalc.com</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=202611051201" defer></script>
+<script src="/assets/js/search.js?v=202611051201" defer></script>
+<script src="/assets/js/calc.js?v=202611051201" defer></script>
+</body>
+</html>

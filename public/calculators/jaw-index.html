@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jaw Index Calculator for Micrognathia | CranioCalc</title>
+<meta name="description" content="Calculate the jaw index (alveolar overjet × maxillary arch ÷ mandibular arch) to quantify micrognathia in newborns, including Robin sequence.">
+<link rel="canonical" href="https://craniocalc.com/calculators/jaw-index">
+<meta property="og:title" content="Jaw Index Calculator for Micrognathia | CranioCalc">
+<meta property="og:description" content="Calculate the jaw index (alveolar overjet × maxillary arch ÷ mandibular arch) to quantify micrognathia in newborns, including Robin sequence.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://craniocalc.com/calculators/jaw-index">
+<meta property="og:image" content="https://craniocalc.com/apple-touch-icon.png">
+<meta name="theme-color" content="#f2f4f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10171c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=202611051201">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="CranioCalc home">
+      <picture class="logo-mark">
+        <source srcset="/assets/img/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="/assets/img/logo-light.png" alt="" width="40" height="39">
+      </picture>
+      <span>CranioCalc</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/calculators/" aria-current="page">Calculators</a></li>
+        <li><a href="/research">Research</a></li>
+        <li><a href="/collaboration">Collaboration</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <div class="site-search" role="search">
+      <label for="site-search-input" class="visually-hidden">Search calculators</label>
+      <span class="ss-field">
+        <svg class="ss-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.6 12.6L17 17"/></svg>
+        <input id="site-search-input" type="search" placeholder="Search calculators" autocomplete="off" spellcheck="false"
+          role="combobox" aria-expanded="false" aria-controls="site-search-results" aria-autocomplete="list">
+      </span>
+      <ul id="site-search-results" role="listbox" aria-label="Matching calculators" hidden></ul>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Jaw Index</h1>
+    <p class="lede">Quantifies micrognathia in newborns from the alveolar overjet and the maxillary and mandibular arch lengths.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="ji-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <div class="field">
+        <label for="ji-oj">Alveolar overjet</label>
+        <div class="unit-input"><input type="number" id="ji-oj" inputmode="decimal" min="0" max="40" step="0.1" placeholder="e.g. 3"><span>mm</span></div>
+        <p class="hint">Distance between the most anterior points of the upper and lower alveolar ridges.</p>
+      </div>
+      <div class="field">
+        <label for="ji-max">Maxillary arch</label>
+        <div class="unit-input"><input type="number" id="ji-max" inputmode="decimal" min="50" max="400" step="0.5" placeholder="e.g. 180"><span>mm</span></div>
+        <p class="hint">Tragion to subnasale to tragion, measured over the skin with a tape.</p>
+      </div>
+      <div class="field">
+        <label for="ji-mand">Mandibular arch</label>
+        <div class="unit-input"><input type="number" id="ji-mand" inputmode="decimal" min="50" max="400" step="0.5" placeholder="e.g. 175"><span>mm</span></div>
+        <p class="hint">Tragion to pogonion to tragion, measured over the skin with a tape.</p>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">Jaw index = alveolar overjet × (maxillary arch ÷ mandibular arch)</span></p>
+      <p>A larger index means a more retruded, smaller mandible relative to the maxilla. There is no validated diagnostic cutoff. In the original report, healthy newborns had a mean of 4.2 (range 2.4 to 6) and infants with Robin sequence a mean of 15.3. A later study of 52 healthy newborns found a mean of 2.1 (SD 0.64) with a different overjet instrument, so values depend on measurement technique.</p>
+      <p>The index is most useful for documenting severity and tracking mandibular growth over time in the same infant, measured the same way each time.</p>
+      <p class="small muted">Sources: van der Haven I, Mulder JW, van der Wal KG, et al. The jaw index: new guide defining micrognathia in newborns. <em>Cleft Palate Craniofac J.</em> 1997;34(3):240–241. Mermans JF, Ghasemi SM, Lissenberg-Witte BI, Don Griot JPW. The reproducibility of the jaw index in the measurement of healthy newborns. <em>Cleft Palate Craniofac J.</em> 2020;57(5):574–580. <a href="https://doi.org/10.1177/1055665619885726" target="_blank" rel="noopener">doi:10.1177/1055665619885726</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="ji-out">
+        <div class="value">–</div>
+        <div class="grade muted">Enter all three measurements</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>For research and education.</strong> Nothing on this site is medical advice or a substitute for clinical judgment. Calculators and models are not FDA-cleared devices. Do not enter identifiable patient information.</p>
+      <p>&copy; <span data-year></span> CranioCalc. Literature data from PubMed (US National Library of Medicine).</p>
+    </div>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/legal">Terms and Privacy</a></li>
+      <li><a href="mailto:hello@craniocalc.com">hello@craniocalc.com</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=202611051201" defer></script>
+<script src="/assets/js/search.js?v=202611051201" defer></script>
+<script src="/assets/js/calc.js?v=202611051201" defer></script>
+</body>
+</html>

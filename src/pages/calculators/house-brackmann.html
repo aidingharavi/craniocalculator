@@ -1,0 +1,40 @@
+<!--{"title": "House-Brackmann Facial Nerve Grading System", "description": "Grade facial nerve function from I (normal) to VI (total paralysis) with the House-Brackmann scale.", "nav": "calculators", "scripts": ["calc.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>House-Brackmann Facial Nerve Grading</h1>
+    <p class="lede">Facial nerve function graded from I (normal) to VI (total paralysis).</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" data-picker>
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <fieldset class="pick-list" aria-label="House-Brackmann grades">
+        <legend class="visually-hidden">House-Brackmann grade</legend>
+        <label class="pick-row"><input type="radio" name="pick" value="0" data-grade="Grade I" data-name="Normal" data-detail="Normal facial function in all areas."><span class="pick-grade">Grade I</span><span class="pick-text"><strong>Normal</strong><span>Normal facial function in all areas.</span></span></label>
+        <label class="pick-row"><input type="radio" name="pick" value="1" data-grade="Grade II" data-name="Slight dysfunction" data-detail="Slight weakness noticeable only on close inspection; may have very slight synkinesis. Normal symmetry and tone at rest. Forehead: moderate to good function. Eye: complete closure with minimal effort. Mouth: slight asymmetry."><span class="pick-grade">Grade II</span><span class="pick-text"><strong>Slight dysfunction</strong><span>Slight weakness noticeable only on close inspection; may have very slight synkinesis. Normal symmetry and tone at rest. Forehead: moderate to good function. Eye: complete closure with minimal effort. Mouth: slight asymmetry.</span></span></label>
+        <label class="pick-row"><input type="radio" name="pick" value="2" data-grade="Grade III" data-name="Moderate dysfunction" data-detail="Obvious but not disfiguring difference between the two sides; noticeable but not severe synkinesis, contracture, or hemifacial spasm. Normal symmetry and tone at rest. Forehead: slight to moderate movement. Eye: complete closure with effort. Mouth: slightly weak with maximum effort."><span class="pick-grade">Grade III</span><span class="pick-text"><strong>Moderate dysfunction</strong><span>Obvious but not disfiguring difference between the two sides; noticeable but not severe synkinesis, contracture, or hemifacial spasm. Normal symmetry and tone at rest. Forehead: slight to moderate movement. Eye: complete closure with effort. Mouth: slightly weak with maximum effort.</span></span></label>
+        <label class="pick-row"><input type="radio" name="pick" value="3" data-grade="Grade IV" data-name="Moderately severe dysfunction" data-detail="Obvious weakness or disfiguring asymmetry. Normal symmetry and tone at rest. Forehead: no movement. Eye: incomplete closure. Mouth: asymmetric with maximum effort."><span class="pick-grade">Grade IV</span><span class="pick-text"><strong>Moderately severe dysfunction</strong><span>Obvious weakness or disfiguring asymmetry. Normal symmetry and tone at rest. Forehead: no movement. Eye: incomplete closure. Mouth: asymmetric with maximum effort.</span></span></label>
+        <label class="pick-row"><input type="radio" name="pick" value="4" data-grade="Grade V" data-name="Severe dysfunction" data-detail="Only barely perceptible motion. Asymmetry at rest. Forehead: no movement. Eye: incomplete closure. Mouth: slight movement."><span class="pick-grade">Grade V</span><span class="pick-text"><strong>Severe dysfunction</strong><span>Only barely perceptible motion. Asymmetry at rest. Forehead: no movement. Eye: incomplete closure. Mouth: slight movement.</span></span></label>
+        <label class="pick-row"><input type="radio" name="pick" value="5" data-grade="Grade VI" data-name="Total paralysis" data-detail="No movement."><span class="pick-grade">Grade VI</span><span class="pick-text"><strong>Total paralysis</strong><span>No movement.</span></span></label>
+      </fieldset>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p>The grade is assigned from the overall appearance, the face at rest, and movement of the forehead, eye, and mouth. Complete eye closure separates grade III from grade IV.</p>
+      <p>The scale was designed to report recovery after vestibular schwannoma surgery and is widely used for facial nerve outcomes in general. It gives one global grade and does not separate regions or quantify synkinesis, so regional scales such as the Sunnybrook Facial Grading System or eFACE are more sensitive to change.</p>
+      <p class="small muted">Source: House JW, Brackmann DE. Facial nerve grading system. <em>Otolaryngol Head Neck Surg.</em> 1985;93(2):146–147. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=House+Brackmann+Facial+nerve+grading+system+1985" target="_blank" rel="noopener">Find on PubMed</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" data-picker-out>
+        <div class="value">–</div>
+        <div class="grade muted">Select the description that fits best</div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OMENS Classification of Craniofacial Microsomia | CranioCalc</title>
+<meta name="description" content="Build the OMENS classification (orbit, mandible, ear, nerve, soft tissue) for craniofacial (hemifacial) microsomia.">
+<link rel="canonical" href="https://craniocalc.com/calculators/omens">
+<meta property="og:title" content="OMENS Classification of Craniofacial Microsomia | CranioCalc">
+<meta property="og:description" content="Build the OMENS classification (orbit, mandible, ear, nerve, soft tissue) for craniofacial (hemifacial) microsomia.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://craniocalc.com/calculators/omens">
+<meta property="og:image" content="https://craniocalc.com/apple-touch-icon.png">
+<meta name="theme-color" content="#f2f4f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10171c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=202611051201">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="CranioCalc home">
+      <picture class="logo-mark">
+        <source srcset="/assets/img/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="/assets/img/logo-light.png" alt="" width="40" height="39">
+      </picture>
+      <span>CranioCalc</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/calculators/" aria-current="page">Calculators</a></li>
+        <li><a href="/research">Research</a></li>
+        <li><a href="/collaboration">Collaboration</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <div class="site-search" role="search">
+      <label for="site-search-input" class="visually-hidden">Search calculators</label>
+      <span class="ss-field">
+        <svg class="ss-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.6 12.6L17 17"/></svg>
+        <input id="site-search-input" type="search" placeholder="Search calculators" autocomplete="off" spellcheck="false"
+          role="combobox" aria-expanded="false" aria-controls="site-search-results" aria-autocomplete="list">
+      </span>
+      <ul id="site-search-results" role="listbox" aria-label="Matching calculators" hidden></ul>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>OMENS Classification</h1>
+    <p class="lede">Staging of craniofacial (hemifacial) microsomia across the orbit, mandible, ear, facial nerve, and soft tissue.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="om-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <div class="field">
+        <label for="om-o">Orbit</label>
+        <select id="om-o" data-om="O">
+          <option value="0">O0: Normal orbital size and position</option>
+          <option value="1">O1: Abnormal orbital size</option>
+          <option value="2">O2: Abnormal orbital position</option>
+          <option value="3">O3: Abnormal orbital size and position</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="om-m">Mandible</label>
+        <select id="om-m" data-om="M">
+          <option value="0">M0: Normal mandible</option>
+          <option value="1">M1: Small mandible and glenoid fossa with short ramus</option>
+          <option value="2A">M2A: Short, abnormally shaped ramus; glenoid fossa in acceptable position</option>
+          <option value="2B">M2B: Short, abnormally shaped ramus; TMJ displaced inferiorly, medially, and anteriorly with hypoplastic condyle</option>
+          <option value="3">M3: Complete absence of ramus, glenoid fossa, and TMJ</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="om-e">Ear</label>
+        <select id="om-e" data-om="E">
+          <option value="0">E0: Normal ear</option>
+          <option value="1">E1: Mild hypoplasia, all structures present</option>
+          <option value="2">E2: Absent external auditory canal with variable hypoplasia of the concha</option>
+          <option value="3">E3: Malpositioned lobule with absent auricle</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="om-n">Facial nerve</label>
+        <select id="om-n" data-om="N">
+          <option value="0">N0: No facial nerve involvement</option>
+          <option value="1">N1: Upper branches (temporal, zygomatic)</option>
+          <option value="2">N2: Lower branches (buccal, mandibular, cervical)</option>
+          <option value="3">N3: All branches</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="om-s">Soft tissue</label>
+        <select id="om-s" data-om="S">
+          <option value="0">S0: No soft tissue or muscle deficiency</option>
+          <option value="1">S1: Minimal deficiency</option>
+          <option value="2">S2: Moderate deficiency</option>
+          <option value="3">S3: Severe deficiency from soft tissue and muscle hypoplasia</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p>Each of the five components is graded independently on the affected side, and the result is reported as a combined code such as O1 M2A E2 N0 S1. Bilateral cases are classified side by side.</p>
+      <p>The OMENS-Plus extension adds extracraniofacial anomalies such as vertebral, cardiac, and renal findings, which are not graded here.</p>
+      <p class="small muted">Source: Vento AR, LaBrie RA, Mulliken JB. The O.M.E.N.S. classification of hemifacial microsomia. <em>Cleft Palate Craniofac J.</em> 1991;28(1):68–76. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Vento+LaBrie+Mulliken+OMENS+classification+hemifacial+microsomia" target="_blank" rel="noopener">Find on PubMed</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="om-out">
+        <div class="value">–</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>For research and education.</strong> Nothing on this site is medical advice or a substitute for clinical judgment. Calculators and models are not FDA-cleared devices. Do not enter identifiable patient information.</p>
+      <p>&copy; <span data-year></span> CranioCalc. Literature data from PubMed (US National Library of Medicine).</p>
+    </div>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/legal">Terms and Privacy</a></li>
+      <li><a href="mailto:hello@craniocalc.com">hello@craniocalc.com</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=202611051201" defer></script>
+<script src="/assets/js/search.js?v=202611051201" defer></script>
+<script src="/assets/js/calc.js?v=202611051201" defer></script>
+</body>
+</html>

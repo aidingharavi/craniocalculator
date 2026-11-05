@@ -453,4 +453,144 @@
     pw.addEventListener("change", update);
     update();
   }
+  /* ---------- Grade pickers (House-Brackmann, Bergland, Whitaker) ---------- */
+  document.querySelectorAll("[data-picker]").forEach((root) => {
+    const out = root.querySelector("[data-picker-out]");
+    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+    const update = () => {
+      const el = root.querySelector('input[name="pick"]:checked');
+      root.querySelectorAll(".pick-row").forEach((r) => r.classList.toggle("on", r.contains(el)));
+      if (!el) return;
+      out.innerHTML = `<div class="value">${esc(el.dataset.grade)}</div><div class="grade">${esc(el.dataset.name)}</div><div class="sub">${esc(el.dataset.detail)}</div>`;
+    };
+    root.addEventListener("change", update);
+    update();
+  });
+
+  /* ---------- OMENS ---------- */
+  const om = document.getElementById("om-calc");
+  if (om) {
+    const out = document.getElementById("om-out");
+    const update = () => {
+      const code = [...om.querySelectorAll("[data-om]")].map((el) => el.dataset.om + el.value).join(" ");
+      out.innerHTML = `<div class="value" style="font-size:clamp(2rem,5vw,2.8rem)">${code}</div><div class="grade">OMENS classification</div>`;
+    };
+    om.addEventListener("change", update);
+    update();
+  }
+
+  /* ---------- Jaw index ---------- */
+  const ji = document.getElementById("ji-calc");
+  if (ji) {
+    const out = document.getElementById("ji-out");
+    const update = () => {
+      const ojRaw = document.getElementById("ji-oj").value;
+      const oj = parseFloat(String(ojRaw).replace(",", "."));
+      const mx = num(document.getElementById("ji-max")), md = num(document.getElementById("ji-mand"));
+      if (ojRaw === "" || !Number.isFinite(oj) || oj < 0 || !mx || !md) {
+        out.innerHTML = `<div class="value">–</div><div class="grade muted">Enter all three measurements</div>`;
+        return;
+      }
+      if (mx / md > 1.6 || md / mx > 1.6) {
+        out.innerHTML = `<div class="value">–</div><div class="grade" style="color:var(--danger)">Check the arch measurements: they differ by more than 60%.</div>`;
+        return;
+      }
+      const v = oj * (mx / md);
+      out.innerHTML = `<div class="value">${fmt(v, 1)}</div><div class="grade">Jaw index</div>
+        <div class="sub">Reported means: healthy newborns 2.1 to 4.2 depending on technique; Robin sequence 13 to 15.</div>`;
+    };
+    ji.addEventListener("input", update);
+    update();
+  }
+
+  /* ---------- Transfusion volume (Davies 2007) ---------- */
+  const tv = document.getElementById("tv-calc");
+  if (tv) {
+    const out = document.getElementById("tv-out");
+    const update = () => {
+      const w = num(document.getElementById("tv-weight")), hb = num(document.getElementById("tv-hb"));
+      const tg = num(document.getElementById("tv-target")), hct = num(document.getElementById("tv-hct"));
+      if (!w || !hb || !tg || !hct) {
+        out.innerHTML = `<div class="value">–</div><div class="grade muted">Enter weight and hemoglobin values</div>`;
+        return;
+      }
+      if (tg <= hb) {
+        out.innerHTML = `<div class="value">–</div><div class="grade" style="color:var(--danger)">The target hemoglobin must be above the current value.</div>`;
+        return;
+      }
+      const vol = (w * (tg - hb) * 3) / (hct / 100);
+      out.innerHTML = `<div class="value">${Math.round(vol).toLocaleString("en-US")}<small>mL</small></div>
+        <div class="grade">Red cell volume</div>
+        <div class="sub">${fmt(vol / w, 1)} mL/kg to raise hemoglobin by ${fmt(tg - hb, 1)} g/dL, with red cells at a hematocrit of ${fmt(hct, 0)}%.</div>`;
+    };
+    tv.addEventListener("input", update);
+    update();
+  }
+
+  /* ---------- Synkinesis Assessment Questionnaire ---------- */
+  const saq = document.getElementById("saq-calc");
+  if (saq) {
+    const out = document.getElementById("saq-out");
+    const update = () => {
+      const sum = [...saq.querySelectorAll("[data-saq]")].reduce((a, el) => a + Number(el.value), 0);
+      const score = (sum / 45) * 100;
+      out.innerHTML = `<div class="value">${fmt(score, 1)}<small>of 100</small></div><div class="grade">SAQ score</div>
+        <div class="sub">Item total ${sum} of 45. The lowest possible score is 20 (no synkinesis on any item).</div>`;
+    };
+    saq.addEventListener("change", update);
+    update();
+  }
+
+  /* ---------- FaCE Scale ---------- */
+  const face = document.getElementById("face-calc");
+  if (face) {
+    const out = document.getElementById("face-out");
+    const list = document.getElementById("face-domains");
+    const DOMAINS = [
+      ["Facial movement", [1, 2, 3]], ["Facial comfort", [4, 6, 13]], ["Oral function", [11, 12]],
+      ["Eye comfort", [5, 7]], ["Lacrimal control", [8]], ["Social function", [9, 10, 14, 15]],
+    ];
+    const value = (n) => {
+      const v = face.querySelector(`[data-face="${n}"]`).value;
+      return v === "" ? null : Number(v);
+    };
+    const score = (nums) => {
+      const vals = nums.map(value).filter((v) => v !== null);
+      if (!vals.length) return null;
+      const sum = vals.reduce((a, b) => a + b, 0);
+      return ((sum - vals.length) / (4 * vals.length)) * 100;
+    };
+    const show = (v) => (v === null ? "–" : fmt(v, 1));
+    const update = () => {
+      const total = score([...Array(15)].map((_, i) => i + 1));
+      out.innerHTML = `<div class="value">${show(total)}${total === null ? "" : "<small>of 100</small>"}</div><div class="grade">FaCE total score</div><div class="sub">0 is the worst and 100 the best facial function.</div>`;
+      list.innerHTML = DOMAINS.map(([name, nums]) => `<li><span>${name}</span><span class="range">${show(score(nums))}</span></li>`).join("");
+    };
+    face.addEventListener("change", update);
+    update();
+  }
+
+  /* ---------- eFACE ---------- */
+  const ef = document.getElementById("ef-calc");
+  if (ef) {
+    const out = document.getElementById("ef-out");
+    const itemScore = (el) => {
+      const v = Number(el.value);
+      return el.dataset.bi === "1" ? 100 - Math.abs(v - 100) : v;
+    };
+    const avg = (dom) => {
+      const els = [...ef.querySelectorAll(`[data-ef="${dom}"]`)];
+      return els.reduce((a, el) => a + itemScore(el), 0) / els.length;
+    };
+    const update = () => {
+      ef.querySelectorAll("[data-ef]").forEach((el) => (document.getElementById(`${el.id}-v`).textContent = el.value));
+      const st = avg("static"), dy = avg("dynamic"), sy = avg("synk");
+      out.innerHTML = `
+        <div class="value" style="font-size:clamp(2rem,5vw,2.8rem)">${fmt(st, 0)} · ${fmt(dy, 0)} · ${fmt(sy, 0)}</div>
+        <div class="grade">Static · Dynamic · Synkinesis</div>
+        <div class="sub">Each subscore runs from 0 to 100, where 100 is normal.</div>`;
+    };
+    ef.addEventListener("input", update);
+    update();
+  }
 })();

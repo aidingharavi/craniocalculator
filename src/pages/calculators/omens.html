@@ -1,0 +1,76 @@
+<!--{"title": "OMENS Classification of Craniofacial Microsomia", "description": "Build the OMENS classification (orbit, mandible, ear, nerve, soft tissue) for craniofacial (hemifacial) microsomia.", "nav": "calculators", "scripts": ["calc.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>OMENS Classification</h1>
+    <p class="lede">Staging of craniofacial (hemifacial) microsomia across the orbit, mandible, ear, facial nerve, and soft tissue.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="om-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <div class="field">
+        <label for="om-o">Orbit</label>
+        <select id="om-o" data-om="O">
+          <option value="0">O0: Normal orbital size and position</option>
+          <option value="1">O1: Abnormal orbital size</option>
+          <option value="2">O2: Abnormal orbital position</option>
+          <option value="3">O3: Abnormal orbital size and position</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="om-m">Mandible</label>
+        <select id="om-m" data-om="M">
+          <option value="0">M0: Normal mandible</option>
+          <option value="1">M1: Small mandible and glenoid fossa with short ramus</option>
+          <option value="2A">M2A: Short, abnormally shaped ramus; glenoid fossa in acceptable position</option>
+          <option value="2B">M2B: Short, abnormally shaped ramus; TMJ displaced inferiorly, medially, and anteriorly with hypoplastic condyle</option>
+          <option value="3">M3: Complete absence of ramus, glenoid fossa, and TMJ</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="om-e">Ear</label>
+        <select id="om-e" data-om="E">
+          <option value="0">E0: Normal ear</option>
+          <option value="1">E1: Mild hypoplasia, all structures present</option>
+          <option value="2">E2: Absent external auditory canal with variable hypoplasia of the concha</option>
+          <option value="3">E3: Malpositioned lobule with absent auricle</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="om-n">Facial nerve</label>
+        <select id="om-n" data-om="N">
+          <option value="0">N0: No facial nerve involvement</option>
+          <option value="1">N1: Upper branches (temporal, zygomatic)</option>
+          <option value="2">N2: Lower branches (buccal, mandibular, cervical)</option>
+          <option value="3">N3: All branches</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="om-s">Soft tissue</label>
+        <select id="om-s" data-om="S">
+          <option value="0">S0: No soft tissue or muscle deficiency</option>
+          <option value="1">S1: Minimal deficiency</option>
+          <option value="2">S2: Moderate deficiency</option>
+          <option value="3">S3: Severe deficiency from soft tissue and muscle hypoplasia</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p>Each of the five components is graded independently on the affected side, and the result is reported as a combined code such as O1 M2A E2 N0 S1. Bilateral cases are classified side by side.</p>
+      <p>The OMENS-Plus extension adds extracraniofacial anomalies such as vertebral, cardiac, and renal findings, which are not graded here.</p>
+      <p class="small muted">Source: Vento AR, LaBrie RA, Mulliken JB. The O.M.E.N.S. classification of hemifacial microsomia. <em>Cleft Palate Craniofac J.</em> 1991;28(1):68–76. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Vento+LaBrie+Mulliken+OMENS+classification+hemifacial+microsomia" target="_blank" rel="noopener">Find on PubMed</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="om-out">
+        <div class="value">–</div>
+      </div>
+    </div>
+  </div>
+</section>

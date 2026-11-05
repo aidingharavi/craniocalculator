@@ -129,6 +129,26 @@
       "status": "live"
     },
     {
+      "id": "jaw-index",
+      "group": "established",
+      "kind": "reference",
+      "name": "Jaw Index",
+      "summary": "Quantifies micrognathia in newborns from alveolar overjet and arch lengths.",
+      "keywords": [
+        "micrognathia",
+        "retrognathia",
+        "Robin sequence",
+        "Pierre Robin sequence",
+        "small jaw",
+        "mandibular hypoplasia",
+        "newborn",
+        "mandibular distraction",
+        "overjet"
+      ],
+      "href": "/calculators/jaw-index",
+      "status": "live"
+    },
+    {
       "id": "gills",
       "group": "established",
       "kind": "reference",
@@ -148,6 +168,25 @@
         "cleft palate"
       ],
       "href": "/calculators/gills",
+      "status": "live"
+    },
+    {
+      "id": "omens",
+      "group": "established",
+      "kind": "reference",
+      "name": "OMENS Classification",
+      "summary": "Staging of craniofacial microsomia across orbit, mandible, ear, facial nerve, and soft tissue.",
+      "keywords": [
+        "craniofacial microsomia",
+        "hemifacial microsomia",
+        "Goldenhar",
+        "oculo-auriculo-vertebral spectrum",
+        "microtia",
+        "mandibular hypoplasia",
+        "Pruzansky",
+        "facial asymmetry"
+      ],
+      "href": "/calculators/omens",
       "status": "live"
     },
     {
@@ -177,6 +216,41 @@
       "status": "live"
     },
     {
+      "id": "bergland",
+      "group": "established",
+      "kind": "reference",
+      "name": "Bergland Scale",
+      "summary": "Radiographic grade of secondary alveolar bone graft success, types I to IV.",
+      "keywords": [
+        "alveolar bone graft",
+        "alveolar cleft",
+        "cleft lip and palate",
+        "secondary bone grafting",
+        "ABG",
+        "iliac crest",
+        "interdental septum"
+      ],
+      "href": "/calculators/bergland",
+      "status": "live"
+    },
+    {
+      "id": "whitaker",
+      "group": "established",
+      "kind": "reference",
+      "name": "Whitaker Classification",
+      "summary": "Craniosynostosis and craniofacial surgery outcome by need for further surgery, classes I to IV.",
+      "keywords": [
+        "craniosynostosis",
+        "cranial vault remodeling",
+        "surgical outcome",
+        "revision surgery",
+        "fronto-orbital advancement",
+        "reoperation"
+      ],
+      "href": "/calculators/whitaker",
+      "status": "live"
+    },
+    {
       "id": "fiss",
       "group": "established",
       "kind": "reference",
@@ -199,6 +273,27 @@
         "injury severity"
       ],
       "href": "/calculators/fiss",
+      "status": "live"
+    },
+    {
+      "id": "house-brackmann",
+      "group": "established",
+      "kind": "reference",
+      "name": "House-Brackmann Grade",
+      "summary": "Global facial nerve function grade from I (normal) to VI (total paralysis).",
+      "keywords": [
+        "facial paralysis",
+        "facial palsy",
+        "facial nerve",
+        "Bell's palsy",
+        "facial reanimation",
+        "vestibular schwannoma",
+        "acoustic neuroma",
+        "Ramsay Hunt",
+        "HB grade",
+        "synkinesis"
+      ],
+      "href": "/calculators/house-brackmann",
       "status": "live"
     },
     {
@@ -226,6 +321,74 @@
       "status": "live"
     },
     {
+      "id": "eface",
+      "group": "established",
+      "kind": "reference",
+      "name": "eFACE",
+      "summary": "Clinician-graded facial function: 16 items with static, dynamic, and synkinesis subscores.",
+      "keywords": [
+        "facial paralysis",
+        "facial palsy",
+        "facial nerve",
+        "Bell's palsy",
+        "facial reanimation",
+        "vestibular schwannoma",
+        "acoustic neuroma",
+        "Ramsay Hunt",
+        "synkinesis",
+        "smile",
+        "eFACE"
+      ],
+      "href": "/calculators/eface",
+      "status": "live"
+    },
+    {
+      "id": "saq",
+      "group": "established",
+      "kind": "reference",
+      "name": "Synkinesis Assessment Questionnaire",
+      "summary": "Nine-item patient-reported synkinesis score from 20 to 100.",
+      "keywords": [
+        "facial paralysis",
+        "facial palsy",
+        "facial nerve",
+        "Bell's palsy",
+        "facial reanimation",
+        "vestibular schwannoma",
+        "acoustic neuroma",
+        "Ramsay Hunt",
+        "synkinesis",
+        "SAQ",
+        "botulinum toxin",
+        "patient-reported outcome"
+      ],
+      "href": "/calculators/saq",
+      "status": "live"
+    },
+    {
+      "id": "face-scale",
+      "group": "established",
+      "kind": "reference",
+      "name": "FaCE Scale",
+      "summary": "Patient-reported facial function: total and six domain scores from 0 to 100.",
+      "keywords": [
+        "facial paralysis",
+        "facial palsy",
+        "facial nerve",
+        "Bell's palsy",
+        "facial reanimation",
+        "vestibular schwannoma",
+        "acoustic neuroma",
+        "Ramsay Hunt",
+        "FaCE",
+        "Facial Clinimetric Evaluation",
+        "quality of life",
+        "patient-reported outcome"
+      ],
+      "href": "/calculators/face-scale",
+      "status": "live"
+    },
+    {
       "id": "blood-loss",
       "group": "established",
       "kind": "reference",
@@ -246,6 +409,25 @@
         "Gross formula"
       ],
       "href": "/calculators/blood-loss",
+      "status": "live"
+    },
+    {
+      "id": "transfusion-volume",
+      "group": "established",
+      "kind": "reference",
+      "name": "Transfusion Volume",
+      "summary": "Red cell volume needed to reach a target hemoglobin in children.",
+      "keywords": [
+        "transfusion",
+        "blood transfusion",
+        "packed red blood cells",
+        "PRBC",
+        "anemia",
+        "hemoglobin",
+        "craniosynostosis surgery",
+        "Davies formula"
+      ],
+      "href": "/calculators/transfusion-volume",
       "status": "live"
     },
     {

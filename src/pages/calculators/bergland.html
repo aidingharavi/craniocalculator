@@ -1,0 +1,37 @@
+<!--{"title": "Bergland Scale for Alveolar Bone Grafts", "description": "Grade the radiographic result of secondary alveolar bone grafting in cleft patients by interdental septum height (Bergland types I to IV).", "nav": "calculators", "scripts": ["calc.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Bergland Scale</h1>
+    <p class="lede">Radiographic outcome of secondary alveolar bone grafting, graded by the height of the interdental septum across the cleft.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" data-picker>
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <fieldset class="pick-list" aria-label="Bergland types">
+        <legend class="visually-hidden">Bergland type</legend>
+        <label class="pick-row"><input type="radio" name="pick" value="0" data-grade="Type I" data-name="Approximately normal height" data-detail="Interdental septum height is approximately normal."><span class="pick-grade">Type I</span><span class="pick-text"><strong>Approximately normal height</strong><span>Interdental septum height is approximately normal.</span></span></label>
+        <label class="pick-row"><input type="radio" name="pick" value="1" data-grade="Type II" data-name="At least three quarters of normal" data-detail="Septum height is at least three quarters of normal."><span class="pick-grade">Type II</span><span class="pick-text"><strong>At least three quarters of normal</strong><span>Septum height is at least three quarters of normal.</span></span></label>
+        <label class="pick-row"><input type="radio" name="pick" value="2" data-grade="Type III" data-name="Less than three quarters of normal" data-detail="Septum height is less than three quarters of normal."><span class="pick-grade">Type III</span><span class="pick-text"><strong>Less than three quarters of normal</strong><span>Septum height is less than three quarters of normal.</span></span></label>
+        <label class="pick-row"><input type="radio" name="pick" value="3" data-grade="Type IV" data-name="Failure" data-detail="No continuous bony bridge across the cleft."><span class="pick-grade">Type IV</span><span class="pick-text"><strong>Failure</strong><span>No continuous bony bridge across the cleft.</span></span></label>
+      </fieldset>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p>The interdental septum height is assessed on an occlusal or periapical radiograph after the canine has erupted through the grafted area, compared with the normal height on the non-cleft side. Types I and II are generally considered successful grafts.</p>
+      <p class="small muted">Source: Bergland O, Semb G, Abyholm FE. Elimination of the residual alveolar cleft by secondary bone grafting and subsequent orthodontic treatment. <em>Cleft Palate J.</em> 1986;23(3):175–205. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Bergland+Semb+Abyholm+Elimination+of+the+residual+alveolar+cleft" target="_blank" rel="noopener">Find on PubMed</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" data-picker-out>
+        <div class="value">–</div>
+        <div class="grade muted">Select the description that fits best</div>
+      </div>
+    </div>
+  </div>
+</section>

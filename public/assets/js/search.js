@@ -5,6 +5,10 @@
   if (!box) return;
   const input = box.querySelector("input");
   const list = box.querySelector("[role=listbox]");
+  // Short placeholder where the box is narrow (phones), so it isn't cut off.
+  const setPlaceholder = () => (input.placeholder = input.clientWidth && input.clientWidth < 170 ? "Search" : "Search calculators");
+  setPlaceholder();
+  window.addEventListener("resize", setPlaceholder);
 
   const ESC = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ESC[c]);

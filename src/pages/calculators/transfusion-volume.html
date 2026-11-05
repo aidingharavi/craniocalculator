@@ -1,0 +1,51 @@
+<!--{"title": "Pediatric Red Cell Transfusion Volume Calculator", "description": "Calculate the red blood cell transfusion volume needed to reach a target hemoglobin in children with the Davies formula.", "nav": "calculators", "scripts": ["calc.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Transfusion Volume</h1>
+    <p class="lede">Red blood cell volume needed to raise hemoglobin to a target in children.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="tv-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <div class="field">
+        <label for="tv-weight">Weight</label>
+        <div class="unit-input"><input type="number" id="tv-weight" inputmode="decimal" min="0.4" max="150" step="0.1" placeholder="e.g. 8"><span>kg</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="tv-hb">Current hemoglobin</label>
+          <div class="unit-input"><input type="number" id="tv-hb" inputmode="decimal" min="2" max="22" step="0.1" placeholder="e.g. 7.5"><span>g/dL</span></div>
+        </div>
+        <div class="field">
+          <label for="tv-target">Target hemoglobin</label>
+          <div class="unit-input"><input type="number" id="tv-target" inputmode="decimal" min="2" max="22" step="0.1" placeholder="e.g. 10"><span>g/dL</span></div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="tv-hct">Hematocrit of the red cell unit</label>
+        <div class="unit-input"><input type="number" id="tv-hct" inputmode="decimal" min="40" max="85" step="1" value="60"><span>%</span></div>
+        <p class="hint">About 60% for standard red cells in additive solution. Check with your blood bank.</p>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">Volume (mL) = weight (kg) × hemoglobin increase (g/dL) × 3 ÷ unit hematocrit</span></p>
+      <p>Derived from 379 transfusions in pediatric intensive care, where the measured rise was about 5 mL/kg per 1 g/dL of hemoglobin with red cells at a hematocrit of 0.6. At that hematocrit, 10 mL/kg raises hemoglobin by about 2 g/dL. The traditional factor of 3 or 4, without the hematocrit term, gives smaller volumes than this measured relationship.</p>
+      <p>The estimate assumes no ongoing bleeding. During cranial vault surgery, losses continue, so replacement is guided by measured hemoglobin and hemodynamics. Follow your institution's transfusion protocol.</p>
+      <p class="small muted">Source: Davies P, Robertson S, Hegde S, Greenwood R, Massey E, Davis P. Calculating the required transfusion volume in children. <em>Transfusion.</em> 2007;47(2):212–216. <a href="https://pubmed.ncbi.nlm.nih.gov/17302766/" target="_blank" rel="noopener">PubMed 17302766</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="tv-out">
+        <div class="value">–</div>
+        <div class="grade muted">Enter weight and hemoglobin values</div>
+      </div>
+    </div>
+  </div>
+</section>

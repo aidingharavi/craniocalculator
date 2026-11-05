@@ -1,0 +1,37 @@
+<!--{"title": "Whitaker Classification of Craniofacial Surgical Outcome", "description": "Classify the outcome of craniosynostosis and craniofacial surgery by the need for further surgery (Whitaker categories I to IV).", "nav": "calculators", "scripts": ["calc.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Whitaker Classification</h1>
+    <p class="lede">Outcome after craniosynostosis and craniofacial surgery, graded by the further surgery the result calls for.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" data-picker>
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <fieldset class="pick-list" aria-label="Whitaker categories">
+        <legend class="visually-hidden">Whitaker category</legend>
+        <label class="pick-row"><input type="radio" name="pick" value="0" data-grade="Class I" data-name="No further surgery" data-detail="No refinements or revisions are considered advisable or necessary."><span class="pick-grade">Class I</span><span class="pick-text"><strong>No further surgery</strong><span>No refinements or revisions are considered advisable or necessary.</span></span></label>
+        <label class="pick-row"><input type="radio" name="pick" value="1" data-grade="Class II" data-name="Minor revision" data-detail="Soft-tissue or lesser bone contouring revisions are advisable, usually as outpatient surgery or with a short stay."><span class="pick-grade">Class II</span><span class="pick-text"><strong>Minor revision</strong><span>Soft-tissue or lesser bone contouring revisions are advisable, usually as outpatient surgery or with a short stay.</span></span></label>
+        <label class="pick-row"><input type="radio" name="pick" value="2" data-grade="Class III" data-name="Major secondary procedure" data-detail="Major alternative osteotomies or bone grafting are advisable, though less extensive than the original operation."><span class="pick-grade">Class III</span><span class="pick-text"><strong>Major secondary procedure</strong><span>Major alternative osteotomies or bone grafting are advisable, though less extensive than the original operation.</span></span></label>
+        <label class="pick-row"><input type="radio" name="pick" value="3" data-grade="Class IV" data-name="Major craniofacial procedure" data-detail="A major craniofacial procedure is advisable, duplicating or exceeding the original operation."><span class="pick-grade">Class IV</span><span class="pick-text"><strong>Major craniofacial procedure</strong><span>A major craniofacial procedure is advisable, duplicating or exceeding the original operation.</span></span></label>
+      </fieldset>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p>The category reflects the surgeon's judgment of what further surgery the result calls for, rather than what was actually performed. It is widely used to report craniosynostosis outcomes.</p>
+      <p class="small muted">Source: Whitaker LA, Bartlett SP, Schut L, Bruce D. Craniosynostosis: an analysis of the timing, treatment, and complications in 164 consecutive patients. <em>Plast Reconstr Surg.</em> 1987;80(2):195–212. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Whitaker+Craniosynostosis+analysis+of+the+timing+treatment+and+complications+in+164" target="_blank" rel="noopener">Find on PubMed</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" data-picker-out>
+        <div class="value">–</div>
+        <div class="grade muted">Select the description that fits best</div>
+      </div>
+    </div>
+  </div>
+</section>

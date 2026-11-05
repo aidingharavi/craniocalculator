@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>eFACE Facial Grading Scale Calculator | CranioCalc</title>
+<meta name="description" content="Score the eFACE clinician-graded facial function scale: 16 items with static, dynamic, and synkinesis subscores from 0 to 100.">
+<link rel="canonical" href="https://craniocalc.com/calculators/eface">
+<meta property="og:title" content="eFACE Facial Grading Scale Calculator | CranioCalc">
+<meta property="og:description" content="Score the eFACE clinician-graded facial function scale: 16 items with static, dynamic, and synkinesis subscores from 0 to 100.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://craniocalc.com/calculators/eface">
+<meta property="og:image" content="https://craniocalc.com/apple-touch-icon.png">
+<meta name="theme-color" content="#f2f4f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10171c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=202611051201">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="CranioCalc home">
+      <picture class="logo-mark">
+        <source srcset="/assets/img/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="/assets/img/logo-light.png" alt="" width="40" height="39">
+      </picture>
+      <span>CranioCalc</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/calculators/" aria-current="page">Calculators</a></li>
+        <li><a href="/research">Research</a></li>
+        <li><a href="/collaboration">Collaboration</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+    <div class="site-search" role="search">
+      <label for="site-search-input" class="visually-hidden">Search calculators</label>
+      <span class="ss-field">
+        <svg class="ss-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.6 12.6L17 17"/></svg>
+        <input id="site-search-input" type="search" placeholder="Search calculators" autocomplete="off" spellcheck="false"
+          role="combobox" aria-expanded="false" aria-controls="site-search-results" aria-autocomplete="list">
+      </span>
+      <ul id="site-search-results" role="listbox" aria-label="Matching calculators" hidden></ul>
+    </div>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>eFACE</h1>
+    <p class="lede">Clinician-graded facial function scale with 16 visual analogue items and static, dynamic, and synkinesis subscores.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="ef-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <p class="hint" style="margin-top:0">Grade the affected side against the normal side. 100 is balanced position, normal movement, or no synkinesis. For items that can be abnormal in either direction, the scale runs to 200, and the distance from 100 is what counts.</p>
+      <h3 class="small cs-step">Static (at rest)</h3>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-0">Brow height at rest</label><output id="ef-0-v" for="ef-0">100</output></div>
+        <input type="range" id="ef-0" min="0" max="200" step="1" value="100" data-ef="static" data-bi="1">
+        <div class="ef-ends"><span>Low (ptotic)</span><span>Balanced</span><span>High</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-1">Palpebral fissure width at rest</label><output id="ef-1-v" for="ef-1">100</output></div>
+        <input type="range" id="ef-1" min="0" max="200" step="1" value="100" data-ef="static" data-bi="1">
+        <div class="ef-ends"><span>Narrow</span><span>Balanced</span><span>Wide</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-2">Nasolabial fold depth at rest</label><output id="ef-2-v" for="ef-2">100</output></div>
+        <input type="range" id="ef-2" min="0" max="200" step="1" value="100" data-ef="static" data-bi="1">
+        <div class="ef-ends"><span>Effaced</span><span>Balanced</span><span>Deep</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-3">Nasolabial fold orientation at rest</label><output id="ef-3-v" for="ef-3">100</output></div>
+        <input type="range" id="ef-3" min="0" max="200" step="1" value="100" data-ef="static" data-bi="1">
+        <div class="ef-ends"><span>Vertical</span><span>Balanced</span><span>Horizontal</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-4">Oral commissure position at rest</label><output id="ef-4-v" for="ef-4">100</output></div>
+        <input type="range" id="ef-4" min="0" max="200" step="1" value="100" data-ef="static" data-bi="1">
+        <div class="ef-ends"><span>Low</span><span>Balanced</span><span>High</span></div>
+      </div>
+      <h3 class="small cs-step">Dynamic (movement)</h3>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-5">Brow elevation</label><output id="ef-5-v" for="ef-5">100</output></div>
+        <input type="range" id="ef-5" min="0" max="100" step="1" value="100" data-ef="dynamic" data-bi="0">
+        <div class="ef-ends"><span>None</span><span>Normal</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-6">Gentle eye closure</label><output id="ef-6-v" for="ef-6">100</output></div>
+        <input type="range" id="ef-6" min="0" max="100" step="1" value="100" data-ef="dynamic" data-bi="0">
+        <div class="ef-ends"><span>None</span><span>Normal</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-7">Full eye closure</label><output id="ef-7-v" for="ef-7">100</output></div>
+        <input type="range" id="ef-7" min="0" max="100" step="1" value="100" data-ef="dynamic" data-bi="0">
+        <div class="ef-ends"><span>None</span><span>Normal</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-8">Oral commissure movement with smile</label><output id="ef-8-v" for="ef-8">100</output></div>
+        <input type="range" id="ef-8" min="0" max="100" step="1" value="100" data-ef="dynamic" data-bi="0">
+        <div class="ef-ends"><span>None</span><span>Normal</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-9">Nasolabial fold depth with smile</label><output id="ef-9-v" for="ef-9">100</output></div>
+        <input type="range" id="ef-9" min="0" max="200" step="1" value="100" data-ef="dynamic" data-bi="1">
+        <div class="ef-ends"><span>Effaced</span><span>Balanced</span><span>Deep</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-10">Nasolabial fold orientation with smile</label><output id="ef-10-v" for="ef-10">100</output></div>
+        <input type="range" id="ef-10" min="0" max="200" step="1" value="100" data-ef="dynamic" data-bi="1">
+        <div class="ef-ends"><span>Vertical</span><span>Balanced</span><span>Horizontal</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-11">Lower lip movement</label><output id="ef-11-v" for="ef-11">100</output></div>
+        <input type="range" id="ef-11" min="0" max="100" step="1" value="100" data-ef="dynamic" data-bi="0">
+        <div class="ef-ends"><span>None</span><span>Normal</span></div>
+      </div>
+      <h3 class="small cs-step">Synkinesis</h3>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-12">Ocular synkinesis</label><output id="ef-12-v" for="ef-12">100</output></div>
+        <input type="range" id="ef-12" min="0" max="100" step="1" value="100" data-ef="synk" data-bi="0">
+        <div class="ef-ends"><span>Severe</span><span>None</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-13">Midfacial synkinesis</label><output id="ef-13-v" for="ef-13">100</output></div>
+        <input type="range" id="ef-13" min="0" max="100" step="1" value="100" data-ef="synk" data-bi="0">
+        <div class="ef-ends"><span>Severe</span><span>None</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-14">Mentalis dimpling</label><output id="ef-14-v" for="ef-14">100</output></div>
+        <input type="range" id="ef-14" min="0" max="100" step="1" value="100" data-ef="synk" data-bi="0">
+        <div class="ef-ends"><span>Severe</span><span>None</span></div>
+      </div>
+      <div class="field ef-item">
+        <div class="ef-label"><label for="ef-15">Platysmal synkinesis</label><output id="ef-15-v" for="ef-15">100</output></div>
+        <input type="range" id="ef-15" min="0" max="100" step="1" value="100" data-ef="synk" data-bi="0">
+        <div class="ef-ends"><span>Severe</span><span>None</span></div>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p>Each item is scored 0 to 100, where 100 is normal. Items that can deviate in two directions, such as a ptotic or overly elevated brow, are graded 0 to 200 and scored as 100 minus the distance from 100. Each subscore is the simple average of its items: static (5 items), dynamic (7 items), and synkinesis (4 items).</p>
+      <p>Rules from the original description: use the eFACE only for unilateral paralysis; grade synkinesis on the expression that produces the most severe synkinesis; if the nasolabial fold is effaced so that it cannot be seen, score both its depth and orientation as 0; with severe brow ptosis, estimate palpebral fissure width with the brow elevated manually.</p>
+      <p>The development study reports the three subscores and a regression relating them to expert-rated disfigurement, in which dynamic function weighed most heavily. It does not define a single total score, so none is shown here.</p>
+      <p class="small muted">Source: Banks CA, Bhama PK, Park J, Hadlock CR, Hadlock TA. Clinician-graded electronic facial paralysis assessment: the eFACE. <em>Plast Reconstr Surg.</em> 2015;136(2):223e–230e. <a href="https://doi.org/10.1097/PRS.0000000000001447" target="_blank" rel="noopener">doi:10.1097/PRS.0000000000001447</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="ef-out"><div class="value">–</div></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>For research and education.</strong> Nothing on this site is medical advice or a substitute for clinical judgment. Calculators and models are not FDA-cleared devices. Do not enter identifiable patient information.</p>
+      <p>&copy; <span data-year></span> CranioCalc. Literature data from PubMed (US National Library of Medicine).</p>
+    </div>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/legal">Terms and Privacy</a></li>
+      <li><a href="mailto:hello@craniocalc.com">hello@craniocalc.com</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=202611051201" defer></script>
+<script src="/assets/js/search.js?v=202611051201" defer></script>
+<script src="/assets/js/calc.js?v=202611051201" defer></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!--{"title": "Synkinesis Assessment Questionnaire (SAQ) Calculator", "description": "Score the Synkinesis Assessment Questionnaire, a 9-item patient-reported measure of facial synkinesis.", "nav": "calculators", "scripts": ["calc.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Synkinesis Assessment Questionnaire</h1>
+    <p class="lede">Nine-item patient-reported measure of synkinesis after facial nerve injury.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="saq-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <p class="hint" style="margin-top:0">Rate how often or how severely each occurs, from 1 (seldom or not at all) to 5 (all the time or severely).</p>
+      <div class="field"><label for="saq-1">1. Eye closes when smiling</label><select id="saq-1" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-2">2. Eye closes when speaking</label><select id="saq-2" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-3">3. Eye closes when whistling or puckering the lips</label><select id="saq-3" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-4">4. Neck tightens when smiling</label><select id="saq-4" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-5">5. Face tightens when closing the eyes</label><select id="saq-5" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-6">6. Corner of the mouth moves when closing the eye</label><select id="saq-6" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-7">7. Neck tightens when closing the eyes</label><select id="saq-7" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-8">8. Eye waters when eating</label><select id="saq-8" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+      <div class="field"><label for="saq-9">9. Chin dimples when moving the face</label><select id="saq-9" data-saq><option value="1">1: Seldom or not at all</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5: All the time or severely</option></select></div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">SAQ score = (sum of the 9 items ÷ 45) × 100</span></p>
+      <p>Higher scores mean more frequent or severe synkinesis. Because each item is rated 1 to 5, the lowest possible score is 20. The questionnaire is commonly used to track response to chemodenervation, neuromuscular retraining, and selective neurectomy.</p>
+      <p>Items are paraphrased here for entering responses. For patient administration and research, use the original instrument.</p>
+      <p class="small muted">Source: Mehta RP, Wernick Robinson M, Hadlock TA. Validation of a synkinesis assessment questionnaire. <em>Laryngoscope.</em> 2007;117(5):923–926. <a href="https://doi.org/10.1097/MLG.0b013e3180412460" target="_blank" rel="noopener">doi:10.1097/MLG.0b013e3180412460</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="saq-out"><div class="value">–</div></div>
+    </div>
+  </div>
+</section>

@@ -562,3 +562,23 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
   .sb-cell { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); align-items: center; gap: 10px; }
   .sb-mini { position: static; width: auto; height: auto; overflow: visible; clip: auto; font-size: var(--t-sm); color: var(--ink-2); }
 }
+
+/* Grade pickers */
+.pick-list { border: 0; padding: 0; margin: 0; display: grid; gap: 8px; }
+.pick-row { display: grid; grid-template-columns: auto 5.5rem minmax(0, 1fr); gap: 12px; align-items: start; padding: 12px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--surface); cursor: pointer; font-weight: 400; margin: 0; }
+.pick-row input { margin-top: 3px; }
+.pick-row.on { border-color: var(--violet); background: var(--violet-wash); }
+.pick-grade { font-weight: 600; white-space: nowrap; }
+.pick-text { display: grid; gap: 2px; }
+.pick-text span { color: var(--ink-2); font-size: var(--t-sm); line-height: 1.45; }
+@media (max-width: 520px) { .pick-row { grid-template-columns: auto minmax(0, 1fr); } .pick-grade { grid-column: 2; } .pick-text { grid-column: 2; } }
+
+/* eFACE sliders */
+.ef-item { margin-bottom: 18px; }
+.ef-label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.ef-label label { margin-bottom: 4px; }
+.ef-label output { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--ink-2); }
+.ef-item input[type="range"] { width: 100%; accent-color: var(--violet); }
+.ef-ends { display: flex; justify-content: space-between; font-size: var(--t-xs); color: var(--ink-3); }
+
+#face-domains li { grid-template-columns: minmax(0, 1fr) auto; }
