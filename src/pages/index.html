@@ -5,7 +5,28 @@
       <h1>Calculators for Craniofacial Surgery</h1>
       <p class="lede">Established measurements and new outcome models, each with its formula, data source, and limitations.</p>
       <ul class="index simple" id="home-live" aria-label="Calculators you can use now"><li class="empty">Loading…</li></ul>
-      <p style="margin-top:18px"><a class="btn" href="/calculators/">See All Calculators</a></p>
+      <div class="hero-search-row">
+        <div class="site-search hero-search" id="home-search" role="search" data-calc-search data-limit="25">
+          <label for="home-search-input" class="visually-hidden">Search by condition, surgery, or calculator</label>
+          <span class="ss-field">
+            <svg class="ss-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M12.6 12.6L17 17"/></svg>
+            <input id="home-search-input" type="search" placeholder="Search by condition, surgery, or calculator" autocomplete="off" spellcheck="false"
+              role="combobox" aria-expanded="false" aria-controls="home-search-results" aria-autocomplete="list">
+          </span>
+          <ul id="home-search-results" role="listbox" aria-label="Matching calculators" hidden></ul>
+        </div>
+        <a class="btn" href="/calculators/">See All Calculators</a>
+      </div>
+      <div class="chips" aria-label="Common searches">
+        <span>Try:</span>
+        <button type="button" class="chip" data-search-chip="Craniosynostosis" data-for="home-search">Craniosynostosis</button>
+        <button type="button" class="chip" data-search-chip="Cleft palate" data-for="home-search">Cleft palate</button>
+        <button type="button" class="chip" data-search-chip="Robin sequence" data-for="home-search">Robin sequence</button>
+        <button type="button" class="chip" data-search-chip="Plagiocephaly" data-for="home-search">Plagiocephaly</button>
+        <button type="button" class="chip" data-search-chip="Facial paralysis" data-for="home-search">Facial paralysis</button>
+        <button type="button" class="chip" data-search-chip="Facial fractures" data-for="home-search">Facial fractures</button>
+        <button type="button" class="chip" data-search-chip="Craniofacial microsomia" data-for="home-search">Craniofacial microsomia</button>
+      </div>
     </div>
     <figure class="hero-figure">
       {{> tracing}}
