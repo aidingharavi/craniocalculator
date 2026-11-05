@@ -546,9 +546,5 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 .cs-checks .check input { margin-top: 2px; flex: none; }
 @media (min-width: 861px) { #cs-calc > [aria-live] { position: sticky; top: 24px; } }
 
-/* Header logo: line art in the theme's ink color (black in light mode, white in dark mode) */
-.logo-mark {
-  display: block; flex: none; width: 40px; aspect-ratio: 264 / 259; background-color: var(--ink);
-  -webkit-mask: url("/assets/img/logo-mask.png") center / contain no-repeat;
-  mask: url("/assets/img/logo-mask.png") center / contain no-repeat;
-}
+/* Header logo: line art in the theme's ink color; <picture> swaps the dark-mode version */
+.logo-mark { display: block; flex: none; }

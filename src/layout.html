@@ -24,7 +24,10 @@
 <header class="site-header">
   <div class="wrap">
     <a class="wordmark" href="/" aria-label="CranioCalc home">
-      <span class="logo-mark" aria-hidden="true"></span>
+      <picture class="logo-mark">
+        <source srcset="/assets/img/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="/assets/img/logo-light.png" alt="" width="40" height="39">
+      </picture>
       <span>CranioCalc</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>

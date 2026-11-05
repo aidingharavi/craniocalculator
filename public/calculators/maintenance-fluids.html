@@ -17,14 +17,17 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/ibm-plex-sans-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=202611051117">
+<link rel="stylesheet" href="/assets/css/site.css?v=202611051120">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
     <a class="wordmark" href="/" aria-label="CranioCalc home">
-      <span class="logo-mark" aria-hidden="true"></span>
+      <picture class="logo-mark">
+        <source srcset="/assets/img/logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="/assets/img/logo-light.png" alt="" width="40" height="39">
+      </picture>
       <span>CranioCalc</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -98,8 +101,8 @@
     </ul>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=202611051117" defer></script>
-<script src="/assets/js/search.js?v=202611051117" defer></script>
-<script src="/assets/js/calc.js?v=202611051117" defer></script>
+<script src="/assets/js/site.js?v=202611051120" defer></script>
+<script src="/assets/js/search.js?v=202611051120" defer></script>
+<script src="/assets/js/calc.js?v=202611051120" defer></script>
 </body>
 </html>
