@@ -18,16 +18,13 @@ not_found_handling = "404-page"
 html_handling = "auto-trailing-slash"
 
 # Form storage (collaboration messages and digest sign-ups).
-# Until these are set, the forms show a friendly "email us instead" message.
-# 1. Cloudflare dashboard > Storage & Databases > KV > Create namespace: RATE_LIMIT, then SUBMISSIONS
-# 2. Paste each namespace ID below and remove the leading "# " from those lines.
-# [[kv_namespaces]]
-# binding = "RATE_LIMIT"
-# id = "PASTE_RATE_LIMIT_ID"
-#
-# [[kv_namespaces]]
-# binding = "SUBMISSIONS"
-# id = "PASTE_SUBMISSIONS_ID"
+# No IDs needed: wrangler 4.45+ creates these KV namespaces on the first deploy
+# and keeps them linked to this Worker on later deploys (automatic provisioning).
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+
+[[kv_namespaces]]
+binding = "SUBMISSIONS"
 
 # Secrets: set in the Cloudflare dashboard (Worker > Settings > Variables and Secrets), never here:
 #   ADMIN_TOKEN         for /api/admin/export
