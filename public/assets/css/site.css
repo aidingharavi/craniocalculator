@@ -493,3 +493,18 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
   .index.names-only { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; border-top: 0; }
   .index.names-only li:nth-child(-n+2) { border-top: 1px solid var(--rule); }
 }
+
+/* Home page cephalometric tracing: the PNG is used as a mask so the line color
+   follows the theme (black in light mode, white in dark mode). */
+:root { --tracing-line: #000; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --tracing-line: #fff; } }
+:root[data-theme="dark"] { --tracing-line: #fff; }
+.ceph-tracing {
+  width: 100%;
+  aspect-ratio: 900 / 837;
+  background-color: var(--tracing-line);
+  -webkit-mask: url("/assets/img/ceph-tracing.png") center / contain no-repeat;
+  mask: url("/assets/img/ceph-tracing.png") center / contain no-repeat;
+}
+.hero-figure:has(.ceph-tracing) { width: min(100%, 440px); }
+@media (max-width: 820px) { .hero-figure:has(.ceph-tracing) { width: 200px; } }
