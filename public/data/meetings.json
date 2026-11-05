@@ -1,0 +1,98 @@
+{
+  "lastChecked": "2026-11-04",
+  "note": "Dates are checked against society and meeting-calendar listings. Confirm on the official site before booking travel. Meetings automatically drop off the page after their end date.",
+  "meetings": [
+    {
+      "name": "AANS/CNS Section on Pediatric Neurological Surgery Annual Meeting",
+      "short": "Joint Pediatric Section",
+      "start": "2026-12-03",
+      "end": "2026-12-06",
+      "location": "San Francisco, CA",
+      "url": "https://pedsneurosurgery.org/meetings/",
+      "focus": "Pediatric neurosurgery, including craniosynostosis",
+      "confirmed": false
+    },
+    {
+      "name": "ASPS Spring Meeting",
+      "short": "ASPS Spring",
+      "start": "2027-02-26",
+      "end": "2027-02-28",
+      "location": "Virtual",
+      "url": "https://www.plasticsurgery.org/for-medical-professionals/education/events/spring-meeting",
+      "focus": "Plastic surgery",
+      "confirmed": true
+    },
+    {
+      "name": "ACPA Annual Meeting (American Cleft Palate-Craniofacial Association)",
+      "short": "ACPA",
+      "start": "2027-04-28",
+      "end": "2027-05-02",
+      "location": "Toronto, ON, Canada",
+      "url": "https://acpacares.org/annual-meeting/",
+      "focus": "Interdisciplinary cleft and craniofacial care",
+      "confirmed": true
+    },
+    {
+      "name": "American Association of Plastic Surgeons 105th Annual Meeting",
+      "short": "AAPS",
+      "start": "2027-05-15",
+      "end": "2027-05-18",
+      "location": "Washington, DC",
+      "url": "https://meeting.aaps1921.org/",
+      "focus": "Academic plastic surgery",
+      "confirmed": true
+    },
+    {
+      "name": "Plastic Surgery Research Council 72nd Annual Meeting",
+      "short": "PSRC",
+      "start": null,
+      "end": null,
+      "when": "2027, dates to be announced",
+      "location": "To be announced",
+      "url": "https://ps-rc.org/meeting/",
+      "focus": "Plastic surgery research",
+      "confirmed": false
+    },
+    {
+      "name": "ASMS Gruss Summer Basic Course",
+      "short": "ASMS Basic Course",
+      "start": null,
+      "end": null,
+      "when": "Summer 2027, dates to be announced",
+      "location": "To be announced",
+      "url": "https://maxface.org/calendar.cgi",
+      "focus": "Craniomaxillofacial fundamentals for trainees",
+      "confirmed": false
+    },
+    {
+      "name": "22nd Congress of the International Society of Craniofacial Surgery",
+      "short": "ISCFS",
+      "start": "2027-09-07",
+      "end": "2027-09-10",
+      "location": "Rotterdam, the Netherlands",
+      "url": "https://www.iscfs.org/",
+      "focus": "International craniofacial surgery (biennial)",
+      "confirmed": true
+    },
+    {
+      "name": "Plastic Surgery The Meeting 2027",
+      "short": "PSTM",
+      "start": "2027-09-16",
+      "end": "2027-09-19",
+      "location": "Baltimore, MD",
+      "url": "https://www.plasticsurgerythemeeting.com/",
+      "focus": "ASPS annual meeting, with ASMS craniomaxillofacial programming",
+      "confirmed": true
+    },
+    {
+      "name": "AAOMS Annual Meeting",
+      "short": "AAOMS",
+      "start": "2027-09-20",
+      "end": "2027-09-25",
+      "location": "San Antonio, TX",
+      "url": "https://aaoms.org/",
+      "focus": "Oral and maxillofacial surgery",
+      "confirmed": false
+    }
+  ]
+}

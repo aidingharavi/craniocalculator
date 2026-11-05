@@ -1,0 +1,48 @@
+<!--{"title": "Cephalic index calculator", "description": "Calculate the cephalic (cranial) index from head width and length, with brachycephaly severity bands and notes on scaphocephaly.", "nav": "calculators", "scripts": ["calc.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Cephalic index</h1>
+    <p class="lede">Maximum head width as a percentage of maximum length. The result updates as you type.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="ci-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <div class="field">
+        <label for="ci-width">Maximum width (euryon to euryon)</label>
+        <div class="unit-input"><input type="number" id="ci-width" inputmode="decimal" min="50" max="250" step="0.1" placeholder="e.g. 128"><span>mm</span></div>
+      </div>
+      <div class="field">
+        <label for="ci-length">Maximum length (glabella to opisthocranion)</label>
+        <div class="unit-input"><input type="number" id="ci-length" inputmode="decimal" min="50" max="250" step="0.1" placeholder="e.g. 150"><span>mm</span></div>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">Cephalic index = width ÷ length × 100</span></p>
+      <p>Normal values vary with age, sex, and population, and published cutoffs differ. The bands here follow those commonly used in the positional brachycephaly literature. Age- and sex-specific normative percentiles for the first year of life have been published and are preferable for borderline values.</p>
+      <p>A low index suggests a long, narrow head, as seen in sagittal synostosis (scaphocephaly) and in positional dolichocephaly of preterm infants. A high index suggests brachycephaly, which may be positional or reflect bicoronal synostosis. The index alone cannot distinguish these causes.</p>
+      <p class="small muted">Severity bands as used in J Clin Med. 2020;9(4):1027 (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7231243/" target="_blank" rel="noopener">PMC7231243</a>). Normative data: Wilbrand JF, et al. Clinical classification of infant nonsynostotic cranial deformity. <em>J Pediatr.</em> 2012;161(6). <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Clinical+classification+of+infant+nonsynostotic+cranial+deformity" target="_blank" rel="noopener">Find on PubMed</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="ci-out">
+        <div class="value">–</div>
+        <div class="grade muted">Enter width and length</div>
+      </div>
+      <ol class="scale" id="ci-scale" aria-label="Cephalic index bands">
+        <li data-band="dolicho"><span>&lt; 75</span><span>Dolichocephalic range</span><span class="range">long, narrow</span></li>
+        <li data-band="ref"><span>75 to 90</span><span>Commonly used reference range</span><span class="range"></span></li>
+        <li data-band="mild"><span>&gt; 90 to 93</span><span>Mild brachycephaly</span><span class="range"></span></li>
+        <li data-band="mod"><span>&gt; 93 to 97</span><span>Moderate brachycephaly</span><span class="range"></span></li>
+        <li data-band="sev"><span>&gt; 97</span><span>Severe brachycephaly</span><span class="range"></span></li>
+      </ol>
+    </div>
+  </div>
+
+</section>

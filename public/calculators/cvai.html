@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cranial vault asymmetry index (CVAI) calculator | craniocalc</title>
+<meta name="description" content="Calculate the cranial vault asymmetry index from two cranial diagonals and grade plagiocephaly on the Children's Healthcare of Atlanta severity scale.">
+<link rel="canonical" href="https://craniocalc.com/calculators/cvai">
+<meta property="og:title" content="Cranial vault asymmetry index (CVAI) calculator | craniocalc">
+<meta property="og:description" content="Calculate the cranial vault asymmetry index from two cranial diagonals and grade plagiocephaly on the Children's Healthcare of Atlanta severity scale.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://craniocalc.com/calculators/cvai">
+<meta property="og:image" content="https://craniocalc.com/apple-touch-icon.png">
+<meta name="theme-color" content="#f2f4f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10171c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="New craniofacial research" href="/research.xml">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=202611042008">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="craniocalc home">
+      <img src="/assets/img/logo.svg" alt="" width="40" height="39">
+      <span>craniocalc</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/calculators/" aria-current="page">Calculators</a></li>
+        <li><a href="/research">New craniofacial research</a></li>
+        <li><a href="/collaboration">Collaboration</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Cranial vault asymmetry index</h1>
+    <p class="lede">Enter the two cranial diagonals, measured 30° either side of the anteroposterior axis. The result updates as you type.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="cvai-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <div class="field">
+        <label for="diag-r">Right frontal to left occipital</label>
+        <div class="unit-input"><input type="number" id="diag-r" inputmode="decimal" min="50" max="300" step="0.1" placeholder="e.g. 142"><span>mm</span></div>
+      </div>
+      <div class="field">
+        <label for="diag-l">Left frontal to right occipital</label>
+        <div class="unit-input"><input type="number" id="diag-l" inputmode="decimal" min="50" max="300" step="0.1" placeholder="e.g. 131"><span>mm</span></div>
+      </div>
+      <fieldset class="field" style="border:0;padding:0;margin:0 0 4px">
+        <legend style="font-weight:550;font-size:.95rem;margin-bottom:8px">Divide by</legend>
+        <label class="check"><input type="radio" name="denom" value="long" checked> Longer diagonal</label>
+        <label class="check" style="margin-left:18px"><input type="radio" name="denom" value="short"> Shorter diagonal</label>
+        <p class="hint">Published formulas differ. The longer diagonal is used here by default; the difference is usually under half a point.</p>
+      </fieldset>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">CVAI = |A − B| ÷ longer diagonal × 100</span></p>
+      <p>A and B are the cranial diagonals, typically measured from the frontozygomatic region to the opposite parieto-occipital region, 30° either side of the anteroposterior axis. The absolute difference, |A − B|, is the cranial vault asymmetry (CVA) in millimeters.</p>
+      <p>Severity follows the Children's Healthcare of Atlanta (CHOA) plagiocephaly severity scale, an outcome-based five-level scale validated in a prospective cohort of 224 infants. When the diagonal running from the left frontal to the right occipital region is shorter, the pattern is consistent with right occipital flattening, and vice versa.</p>
+      <p>The CHOA scale also weighs clinical features such as ear shift and facial asymmetry. This calculator grades the CVAI number alone, and it cannot distinguish deformational plagiocephaly from lambdoid craniosynostosis.</p>
+      <p class="small muted">Source: Holowka MA, et al. Plagiocephaly severity scale to aid in clinical treatment recommendations. <em>J Craniofac Surg.</em> 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Plagiocephaly+Severity+Scale+to+Aid+in+Clinical+Treatment+Recommendations" target="_blank" rel="noopener">Find on PubMed</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <figure class="calc-figure" id="cvai-figure" aria-hidden="true"></figure>
+      <div class="readout" id="cvai-out">
+        <div class="value">–</div>
+        <div class="grade muted">Enter both diagonals</div>
+      </div>
+      <ol class="scale" id="cvai-scale" aria-label="Children's Healthcare of Atlanta plagiocephaly severity scale">
+        <li data-level="1"><span>Level 1</span><span>Within normal limits</span><span class="range">&lt; 3.5</span></li>
+        <li data-level="2"><span>Level 2</span><span>Mild</span><span class="range">3.5 to &lt; 6.25</span></li>
+        <li data-level="3"><span>Level 3</span><span>Moderate</span><span class="range">6.25 to &lt; 8.75</span></li>
+        <li data-level="4"><span>Level 4</span><span>Severe</span><span class="range">8.75 to 11.0</span></li>
+        <li data-level="5"><span>Level 5</span><span>Very severe</span><span class="range">&gt; 11.0</span></li>
+      </ol>
+    </div>
+  </div>
+
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>For research and education.</strong> Nothing on this site is medical advice or a substitute for clinical judgment. Calculators and models are not FDA-cleared devices. Do not enter identifiable patient information.</p>
+      <p>&copy; <span data-year></span> craniocalc. Literature data from PubMed (US National Library of Medicine).</p>
+    </div>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/legal">Terms and privacy</a></li>
+      <li><a href="/research.xml">RSS</a></li>
+      <li><a href="mailto:hello@craniocalc.com">hello@craniocalc.com</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=202611042008" defer></script>
+<script src="/assets/js/calc.js?v=202611042008" defer></script>
+</body>
+</html>

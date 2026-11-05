@@ -1,0 +1,24 @@
+# Cloudflare Pages configuration for craniocalc.com
+# Static files are served from ./public; API routes live in ./functions.
+name = "craniocalc"
+pages_build_output_dir = "public"
+compatibility_date = "2026-10-01"
+
+# KV namespaces. Create them once in the Cloudflare dashboard (Storage & Databases > KV)
+# or with:  npx wrangler kv namespace create RATE_LIMIT   (and SUBMISSIONS)
+# then paste the printed ids below.
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "REPLACE_WITH_RATE_LIMIT_ID"
+
+[[kv_namespaces]]
+binding = "SUBMISSIONS"
+id = "REPLACE_WITH_SUBMISSIONS_ID"
+
+# Secrets: set in the Cloudflare dashboard (Settings > Variables and Secrets), never here:
+#   ADMIN_TOKEN         for /api/admin/export
+#   RATE_SALT           any random string
+#   RESEND_API_KEY, NOTIFY_EMAIL, NOTIFY_FROM   optional email alerts for collaboration messages
+#
+# The weekly research digest runs on GitHub Actions, so its keys (ANTHROPIC_API_KEY,
+# NCBI_API_KEY, NCBI_EMAIL) go in GitHub repository secrets, not here.

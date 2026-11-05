@@ -1,0 +1,45 @@
+{
+  "_note": "EXAMPLE ONLY: the coefficients below are made up to show the format. Copy this object into the 'tools' list in public/data/calculators.json and replace every value with your fitted model.",
+  "id": "example-nsqip-ssi",
+  "group": "nsqip",
+  "kind": "model",
+  "name": "Surgical site infection after cranial vault remodeling",
+  "summary": "Estimates 30-day surgical site infection risk from preoperative factors.",
+  "status": "live",
+  "dataSource": "nsqip",
+  "version": "1.0",
+  "updated": "2027-01-15",
+  "intendedUse": "Research and preoperative counseling discussions for children undergoing cranial vault remodeling.",
+  "outcome": "Surgical site infection (superficial, deep, or organ space) within 30 days of surgery.",
+  "development": "ACS NSQIP-Pediatric Participant Use Files, 2015–2022; 4,812 patients; 2.1% event rate. Multivariable logistic regression.",
+  "validation": [
+    { "cohort": "Internal (bootstrap, 500 resamples)", "n": "4,812", "auc": "0.71 (0.66–0.76)", "calibrationSlope": "0.93", "brier": "0.020" },
+    { "cohort": "Temporal (2023)", "n": "702", "auc": "0.68 (0.58–0.78)", "calibrationSlope": "0.88", "brier": "0.021" }
+  ],
+  "limitations": [
+    "NSQIP captures 30-day outcomes only.",
+    "Participating hospitals are not a random sample of all US hospitals."
+  ],
+  "citation": "Author A, et al. Journal. Year;Vol:pages.",
+  "code": "",
+  "engine": {
+    "type": "logistic",
+    "intercept": -4.2,
+    "baselineRisk": 0.021,
+    "bands": [
+      { "max": 0.02, "label": "Below the cohort average" },
+      { "max": 0.05, "label": "Above the cohort average" },
+      { "max": 1, "label": "Well above the cohort average" }
+    ],
+    "inputs": [
+      { "id": "age", "label": "Age at surgery", "type": "number", "unit": "months", "min": 0, "max": 216, "step": 1, "default": 6, "coef": 0.012, "center": 6, "hint": "Coefficient applies per month above 6 months." },
+      { "id": "asa", "label": "ASA physical status", "type": "select", "options": [
+        { "label": "ASA I–II", "coef": 0 },
+        { "label": "ASA III", "coef": 0.55 },
+        { "label": "ASA IV–V", "coef": 0.9 }
+      ] },
+      { "id": "preterm", "label": "Born before 37 weeks", "type": "binary", "coef": 0.31 },
+      { "id": "steroid", "label": "Chronic steroid use", "type": "binary", "coef": 0.62 }
+    ]
+  }
+}

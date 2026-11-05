@@ -1,0 +1,93 @@
+{
+  "_howto": "Each tool appears in its group on /calculators/. Established tools link to their own page. Models open a model card at /calculators/model?id=<id>. status: live | in-development | planned. A model is calculated in the browser when it has an 'engine' (see examples/logistic-model-example.json), or embedded when it has an 'embedUrl' (e.g. a shinyapps.io app). Leave a field empty to hide it.",
+  "groups": [
+    {
+      "id": "established",
+      "name": "Established calculators",
+      "intro": "Published formulas and severity scales used in craniofacial practice, each with its source."
+    },
+    {
+      "id": "models",
+      "name": "Our outcome models",
+      "intro": "Prediction models developed from institutional data. Each has a model card describing its development cohort, validation, and limitations."
+    },
+    {
+      "id": "nsqip",
+      "name": "ACS NSQIP models",
+      "intro": "Risk models built from American College of Surgeons National Surgical Quality Improvement Program data, covering perioperative outcomes across many hospitals.",
+      "empty": "The first NSQIP-based calculators are in preparation.",
+      "disclaimer": "The American College of Surgeons National Surgical Quality Improvement Program and the hospitals participating in the ACS NSQIP are the source of the data used herein; they have not verified and are not responsible for the statistical validity of the data analysis or the conclusions derived by the authors."
+    }
+  ],
+  "tools": [
+    {
+      "id": "cvai",
+      "group": "established",
+      "kind": "reference",
+      "name": "Cranial vault asymmetry index",
+      "summary": "Quantifies plagiocephaly from two cranial diagonals and grades it on the Children's Healthcare of Atlanta scale.",
+      "href": "/calculators/cvai",
+      "status": "live"
+    },
+    {
+      "id": "cephalic-index",
+      "group": "established",
+      "kind": "reference",
+      "name": "Cephalic index",
+      "summary": "Head width as a percentage of length, for brachycephaly and scaphocephaly.",
+      "href": "/calculators/cephalic-index",
+      "status": "live"
+    },
+    {
+      "id": "blood-loss",
+      "group": "established",
+      "kind": "reference",
+      "name": "Estimated blood volume and allowable blood loss",
+      "summary": "Weight- and age-based blood volume with maximum allowable blood loss by the Gross formula, for cranial vault and other pediatric cases.",
+      "href": "/calculators/blood-loss",
+      "status": "live"
+    },
+    {
+      "id": "craniostrip",
+      "group": "models",
+      "kind": "model",
+      "name": "CranioSTRIP",
+      "summary": "Machine learning model estimating perioperative transfusion risk in craniosynostosis surgery.",
+      "status": "in-development",
+      "dataSource": "institutional",
+      "version": "",
+      "updated": "",
+      "embedUrl": "",
+      "intendedUse": "",
+      "outcome": "",
+      "inputs": [],
+      "development": "",
+      "validation": [],
+      "limitations": [],
+      "citation": "",
+      "code": "",
+      "validationOpen": true
+    },
+    {
+      "id": "cleft-speech",
+      "group": "models",
+      "kind": "model",
+      "name": "Cleft palate speech outcomes",
+      "summary": "Machine learning model estimating speech outcomes after cleft palate repair.",
+      "status": "in-development",
+      "dataSource": "institutional",
+      "version": "",
+      "updated": "",
+      "embedUrl": "",
+      "intendedUse": "",
+      "outcome": "",
+      "inputs": [],
+      "development": "",
+      "validation": [],
+      "limitations": [],
+      "citation": "",
+      "code": "",
+      "validationOpen": true
+    }
+  ]
+}

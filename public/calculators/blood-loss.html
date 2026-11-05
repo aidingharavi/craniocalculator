@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estimated blood volume and allowable blood loss calculator | craniocalc</title>
+<meta name="description" content="Calculate pediatric estimated blood volume by weight and age group, and maximum allowable blood loss with the Gross formula.">
+<link rel="canonical" href="https://craniocalc.com/calculators/blood-loss">
+<meta property="og:title" content="Estimated blood volume and allowable blood loss calculator | craniocalc">
+<meta property="og:description" content="Calculate pediatric estimated blood volume by weight and age group, and maximum allowable blood loss with the Gross formula.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://craniocalc.com/calculators/blood-loss">
+<meta property="og:image" content="https://craniocalc.com/apple-touch-icon.png">
+<meta name="theme-color" content="#f2f4f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10171c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="New craniofacial research" href="/research.xml">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=202611042008">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="craniocalc home">
+      <img src="/assets/img/logo.svg" alt="" width="40" height="39">
+      <span>craniocalc</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/calculators/" aria-current="page">Calculators</a></li>
+        <li><a href="/research">New craniofacial research</a></li>
+        <li><a href="/collaboration">Collaboration</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Estimated blood volume and allowable blood loss</h1>
+    <p class="lede">Blood volume from weight and age group, and how much blood can be lost before reaching a chosen hematocrit. The result updates as you type.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="ebl-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <div class="field">
+        <label for="ebl-weight">Weight</label>
+        <div class="unit-input"><input type="number" id="ebl-weight" inputmode="decimal" min="0.4" max="150" step="0.1" placeholder="e.g. 7.5"><span>kg</span></div>
+      </div>
+      <div class="field">
+        <label for="ebl-age">Age group</label>
+        <select id="ebl-age">
+          <option value="95">Preterm neonate (90–100 mL/kg)</option>
+          <option value="85">Term neonate (80–90 mL/kg)</option>
+          <option value="80" selected>Infant, 1–12 months (75–80 mL/kg)</option>
+          <option value="75">Child, 1–6 years (70–80 mL/kg)</option>
+          <option value="70">Child over 6 years and adult (65–75 mL/kg)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="ebl-perkg">Blood volume per kg</label>
+        <div class="unit-input"><input type="number" id="ebl-perkg" inputmode="decimal" min="50" max="110" step="1" value="80"><span>mL/kg</span></div>
+        <p class="hint">Set by the age group. Adjust if your institution uses a different value.</p>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="ebl-hi">Starting hematocrit</label>
+          <div class="unit-input"><input type="number" id="ebl-hi" inputmode="decimal" min="15" max="70" step="0.1" placeholder="e.g. 33"><span>%</span></div>
+        </div>
+        <div class="field">
+          <label for="ebl-hf">Lowest acceptable hematocrit</label>
+          <div class="unit-input"><input type="number" id="ebl-hf" inputmode="decimal" min="10" max="60" step="0.1" placeholder="e.g. 25"><span>%</span></div>
+        </div>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">EBV = weight × blood volume per kg</span></p>
+      <p><span class="formula">MABL = EBV × (Hct<sub>start</sub> − Hct<sub>lowest</sub>) ÷ Hct<sub>average</sub></span></p>
+      <p>The maximum allowable blood loss (MABL) uses the Gross formula, which divides by the average of the starting and lowest hematocrit to account for ongoing hemodilution as blood is lost and replaced with crystalloid or colloid.</p>
+      <p>Blood volume per kilogram falls with age, from about 90–100 mL/kg in preterm neonates to 65–75 mL/kg in older children and adults. The ranges shown are typical of pediatric anesthesia references and vary between sources.</p>
+      <p>Cranial vault surgery in infants can involve blood loss approaching or exceeding one blood volume. This estimate is a planning aid. Transfusion decisions depend on ongoing losses, hemodynamics, and laboratory values.</p>
+      <p class="small muted">Source: Gross JB. Estimating allowable blood loss: corrected for dilution. <em>Anesthesiology.</em> 1983;58(3):277–280. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Gross+JB+Estimating+allowable+blood+loss+corrected+for+dilution" target="_blank" rel="noopener">Find on PubMed</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="ebl-out">
+        <div class="value">–</div>
+        <div class="grade muted">Enter weight and hematocrit values</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>For research and education.</strong> Nothing on this site is medical advice or a substitute for clinical judgment. Calculators and models are not FDA-cleared devices. Do not enter identifiable patient information.</p>
+      <p>&copy; <span data-year></span> craniocalc. Literature data from PubMed (US National Library of Medicine).</p>
+    </div>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/legal">Terms and privacy</a></li>
+      <li><a href="/research.xml">RSS</a></li>
+      <li><a href="mailto:hello@craniocalc.com">hello@craniocalc.com</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=202611042008" defer></script>
+<script src="/assets/js/calc.js?v=202611042008" defer></script>
+</body>
+</html>

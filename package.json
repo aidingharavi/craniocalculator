@@ -1,0 +1,15 @@
+{
+  "name": "craniocalc",
+  "private": true,
+  "type": "module",
+  "description": "craniocalc: craniofacial surgery calculators, outcome models, and a weekly research digest",
+  "scripts": {
+    "build": "python3 build.py",
+    "dev": "python3 build.py && npx wrangler pages dev",
+    "digest": "node scripts/digest.mjs",
+    "test": "node tests/run.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

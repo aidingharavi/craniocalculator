@@ -1,0 +1,38 @@
+<!--{"title": "New craniofacial research", "description": "Every Monday, the week's most useful new craniofacial, cleft, and pediatric plastic surgery papers from PubMed, each summarized in a sentence or two. Plus upcoming meeting dates.", "nav": "research", "scripts": ["render.js", "digest-view.js", "meetings.js", "research.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <h1>New craniofacial research</h1>
+    <p class="lede">Every Monday we scan the past week's new PubMed records in craniofacial, cleft, and pediatric plastic surgery and pick the papers most worth your time.</p>
+  </div>
+</section>
+
+<section class="wrap research-layout">
+  <div>
+    <div class="col-head" style="margin-bottom:0">
+      <label for="issue" class="visually-hidden">Issue</label>
+      <select id="issue" style="max-width:280px"><option>Latest issue</option></select>
+    </div>
+    <div id="digest" aria-live="polite"><p class="empty">Loading…</p></div>
+    <p class="hint measure" style="margin-top:32px">Papers are selected and summarized automatically from PubMed abstracts using a language model, then published without manual review. Summaries can miss nuance or contain errors. Always read the paper.</p>
+  </div>
+
+  <aside>
+    <section>
+      <h2>Get it by email</h2>
+      <form id="subscribe-form" novalidate>
+        <label for="sub-email" class="visually-hidden">Email address</label>
+        <div class="subscribe">
+          <input type="email" id="sub-email" name="email" autocomplete="email" placeholder="you@hospital.org" required>
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn" type="submit">Subscribe</button>
+        </div>
+        <p class="hint" id="sub-status" aria-live="polite">One email a week. Unsubscribe any time. Or follow with <a href="/research.xml">RSS</a>.</p>
+      </form>
+    </section>
+    <section id="meetings">
+      <h2>Upcoming meetings</h2>
+      <div id="meetings-list"><p class="empty">Loading…</p></div>
+      <p class="hint" id="meetings-note"></p>
+    </section>
+  </aside>
+</section>
