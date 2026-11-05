@@ -5,6 +5,12 @@ name = "craniocalculator"
 main = "worker/index.js"
 compatibility_date = "2026-10-01"
 
+# Custom domains: created automatically on deploy (the zone must be active in this Cloudflare account).
+routes = [
+  { pattern = "craniocalc.com", custom_domain = true },
+  { pattern = "www.craniocalc.com", custom_domain = true },
+]
+
 [assets]
 directory = "./public"
 binding = "ASSETS"
