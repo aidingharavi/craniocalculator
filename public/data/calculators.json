@@ -1,24 +1,19 @@
 {
-  "_howto": "Each tool appears in its group on /calculators/. Established tools link to their own page. Models open a model card at /calculators/model?id=<id>. status: live | in-development | planned. A model is calculated in the browser when it has an 'engine' (see examples/logistic-model-example.json), or embedded when it has an 'embedUrl' (e.g. a shinyapps.io app). Leave a field empty to hide it.",
+  "_howto": "Each tool appears in its group (established or predictive) on /calculators/. Established tools link to their own page. Models open a model card at /calculators/model?id=<id>. status: live | in-development | planned. A model is calculated in the browser when it has an 'engine' (see examples/logistic-model-example.json), or embedded when it has an 'embedUrl' (e.g. a shinyapps.io app). Leave a field empty to hide it. Models built from ACS NSQIP data need \"dataSource\": \"nsqip\" so the NSQIP disclaimer is shown.",
   "groups": [
     {
       "id": "established",
       "name": "Established calculators",
-      "intro": "Published formulas and severity scales used in craniofacial practice, each with its source."
+      "showSummary": false
     },
     {
-      "id": "models",
-      "name": "Our outcome models",
-      "intro": "Prediction models developed from institutional data. Each has a model card describing its development cohort, validation, and limitations."
-    },
-    {
-      "id": "nsqip",
-      "name": "ACS NSQIP models",
-      "intro": "Risk models built from American College of Surgeons National Surgical Quality Improvement Program data, covering perioperative outcomes across many hospitals.",
-      "empty": "The first NSQIP-based calculators are in preparation.",
-      "disclaimer": "The American College of Surgeons National Surgical Quality Improvement Program and the hospitals participating in the ACS NSQIP are the source of the data used herein; they have not verified and are not responsible for the statistical validity of the data analysis or the conclusions derived by the authors."
+      "id": "predictive",
+      "name": "Predictive Models",
+      "intro": "Prediction models from single-center and multicenter data, including ACS NSQIP. Each has a model card describing its development cohort, validation, and limitations.",
+      "empty": "Predictive models are in preparation."
     }
   ],
+  "nsqipDisclaimer": "The American College of Surgeons National Surgical Quality Improvement Program and the hospitals participating in the ACS NSQIP are the source of the data used herein; they have not verified and are not responsible for the statistical validity of the data analysis or the conclusions derived by the authors.",
   "tools": [
     {
       "id": "cvai",
@@ -39,6 +34,51 @@
       "status": "live"
     },
     {
+      "id": "argenta",
+      "group": "established",
+      "kind": "reference",
+      "name": "Argenta classification",
+      "summary": "Clinical staging of positional plagiocephaly (types I to V) and brachycephaly (types I to III).",
+      "href": "/calculators/argenta",
+      "status": "live"
+    },
+    {
+      "id": "head-circumference",
+      "group": "established",
+      "kind": "reference",
+      "name": "Head circumference z-score (WHO)",
+      "summary": "Head circumference z-score and percentile for age and sex, birth to 5 years.",
+      "href": "/calculators/head-circumference",
+      "status": "live"
+    },
+    {
+      "id": "corrected-age",
+      "group": "established",
+      "kind": "reference",
+      "name": "Corrected age for prematurity",
+      "summary": "Chronological, corrected, and postmenstrual age for infants born preterm.",
+      "href": "/calculators/corrected-age",
+      "status": "live"
+    },
+    {
+      "id": "gills",
+      "group": "established",
+      "kind": "reference",
+      "name": "GILLS score",
+      "summary": "Predicts tongue-lip adhesion success in Robin sequence from five preoperative factors.",
+      "href": "/calculators/gills",
+      "status": "live"
+    },
+    {
+      "id": "fiss",
+      "group": "established",
+      "kind": "reference",
+      "name": "Facial Injury Severity Scale",
+      "summary": "Point score for craniomaxillofacial fractures and lacerations.",
+      "href": "/calculators/fiss",
+      "status": "live"
+    },
+    {
       "id": "blood-loss",
       "group": "established",
       "kind": "reference",
@@ -48,8 +88,17 @@
       "status": "live"
     },
     {
+      "id": "maintenance-fluids",
+      "group": "established",
+      "kind": "reference",
+      "name": "Maintenance fluids (Holliday-Segar)",
+      "summary": "Hourly and daily maintenance fluid requirements by weight.",
+      "href": "/calculators/maintenance-fluids",
+      "status": "live"
+    },
+    {
       "id": "craniostrip",
-      "group": "models",
+      "group": "predictive",
       "kind": "model",
       "name": "CranioSTRIP",
       "summary": "Machine learning model estimating perioperative transfusion risk in craniosynostosis surgery.",
@@ -70,7 +119,7 @@
     },
     {
       "id": "cleft-speech",
-      "group": "models",
+      "group": "predictive",
       "kind": "model",
       "name": "Cleft palate speech outcomes",
       "summary": "Machine learning model estimating speech outcomes after cleft palate repair.",

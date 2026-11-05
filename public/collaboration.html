@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Collaboration | craniocalc</title>
-<meta name="description" content="Validate craniocalc prediction models at your center, suggest a calculator, or propose a craniofacial research collaboration.">
+<title>Collaboration | CranioCalc</title>
+<meta name="description" content="Validate CranioCalc prediction models at your center, suggest a calculator, or propose a craniofacial research collaboration.">
 <link rel="canonical" href="https://craniocalc.com/collaboration">
-<meta property="og:title" content="Collaboration | craniocalc">
-<meta property="og:description" content="Validate craniocalc prediction models at your center, suggest a calculator, or propose a craniofacial research collaboration.">
+<meta property="og:title" content="Collaboration | CranioCalc">
+<meta property="og:description" content="Validate CranioCalc prediction models at your center, suggest a calculator, or propose a craniofacial research collaboration.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://craniocalc.com/collaboration">
 <meta property="og:image" content="https://craniocalc.com/apple-touch-icon.png">
@@ -17,15 +17,15 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="New craniofacial research" href="/research.xml">
 <link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css?v=202611042008">
+<link rel="stylesheet" href="/assets/css/site.css?v=202611042318">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="wordmark" href="/" aria-label="craniocalc home">
+    <a class="wordmark" href="/" aria-label="CranioCalc home">
       <img src="/assets/img/logo.svg" alt="" width="40" height="39">
-      <span>craniocalc</span>
+      <span>CranioCalc</span>
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="nav" id="site-nav" aria-label="Main">
@@ -54,31 +54,6 @@
   </div>
 </section>
 
-<section class="wrap section">
-  <div class="two-col">
-    <div>
-      <h2>How external validation works</h2>
-      <ol class="steps-list">
-        <li><h3>Tell us about your cohort</h3><p>Use the form below. We'll reply to talk through fit, sample size, and timing.</p></li>
-        <li><h3>Complete approvals at your site</h3><p>Your IRB decides how the work is classified. Because models run locally, most projects need no transfer of patient-level data.</p></li>
-        <li><h3>Run the model locally</h3><p>We send the model and a data dictionary. You apply it to your cohort inside your own environment.</p></li>
-        <li><h3>Share aggregate metrics only</h3><p>The validation script produces discrimination, calibration, and accuracy summaries. Only those numbers leave your institution.</p></li>
-        <li><h3>Publish together</h3><p>Results from each site are reported in a multicenter validation paper. Authorship follows ICMJE criteria and is agreed before any data work begins.</p></li>
-      </ol>
-    </div>
-    <div>
-      <h2>Models open for validation</h2>
-      <ul class="index" id="open-models"><li class="empty">Loading…</li></ul>
-
-      <h2 style="margin-top:40px">Validation kit</h2>
-      <ul class="link-list" style="columns:1">
-        <li><a href="/downloads/validate_model.R" download>validate_model.R</a><span>Base R script. Takes a CSV of observed outcomes and predicted probabilities and reports AUC with 95% CI, Brier score, calibration intercept and slope, and a calibration plot. Writes aggregate results only.</span></li>
-        <li><a href="/downloads/validation_template.csv" download>validation_template.csv</a><span>The two-column format the script expects, with example rows.</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <section class="wrap section" id="contact">
   <h2>Get in touch</h2>
   <form id="collab-form" class="measure" novalidate>
@@ -102,16 +77,6 @@
         </select>
       </div>
     </div>
-    <div class="field-row" data-show="validation">
-      <div class="field"><label for="c-model">Model</label><select id="c-model" name="model"></select></div>
-      <div class="field"><label for="c-n">Approximate cohort size</label><input type="text" id="c-n" name="cohortSize" placeholder="e.g. 150 patients, 2015–2024"></div>
-    </div>
-    <div class="field" data-show="validation">
-      <label for="c-irb">IRB status</label>
-      <select id="c-irb" name="irb">
-        <option>Not started</option><option>In progress</option><option>Approved or exempt</option><option>Not sure what's needed</option>
-      </select>
-    </div>
     <div class="field"><label for="c-msg" id="c-msg-label">Anything else we should know</label><textarea id="c-msg" name="message" maxlength="3000"></textarea></div>
     <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
     <button class="btn" type="submit">Send message</button>
@@ -124,7 +89,7 @@
   <div class="wrap">
     <div>
       <p><strong>For research and education.</strong> Nothing on this site is medical advice or a substitute for clinical judgment. Calculators and models are not FDA-cleared devices. Do not enter identifiable patient information.</p>
-      <p>&copy; <span data-year></span> craniocalc. Literature data from PubMed (US National Library of Medicine).</p>
+      <p>&copy; <span data-year></span> CranioCalc. Literature data from PubMed (US National Library of Medicine).</p>
     </div>
     <ul>
       <li><a href="/about">About</a></li>
@@ -134,8 +99,8 @@
     </ul>
   </div>
 </footer>
-<script src="/assets/js/site.js?v=202611042008" defer></script>
-<script src="/assets/js/render.js?v=202611042008" defer></script>
-<script src="/assets/js/collaboration.js?v=202611042008" defer></script>
+<script src="/assets/js/site.js?v=202611042318" defer></script>
+<script src="/assets/js/render.js?v=202611042318" defer></script>
+<script src="/assets/js/collaboration.js?v=202611042318" defer></script>
 </body>
 </html>

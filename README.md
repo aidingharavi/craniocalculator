@@ -1,4 +1,4 @@
-# craniocalc
+# CranioCalc
 
 Calculators for craniofacial surgery, plus a weekly digest of new craniofacial research and a collaboration portal. Domain: **craniocalc.com**.
 
@@ -36,10 +36,10 @@ GitHub repo → **Settings → Secrets and variables → Actions** → add `ANTH
 
 ## Adding your own calculators
 
-All calculators are listed in `public/data/calculators.json`, in three groups: `established`, `models` (your institutional models), and `nsqip`.
+All calculators are listed in `public/data/calculators.json`, in two groups: `established` (published formulas and scores, listed by name only) and `predictive` (shown as "Predictive Models": single-center and multicenter models, including NSQIP).
 
 **Regression models (recommended for NSQIP models): built in, no server needed.**
-Copy `examples/logistic-model-example.json` into the `tools` list, set `"group": "nsqip"` and `"dataSource": "nsqip"`, and replace the made-up numbers with your fitted model:
+Copy `examples/logistic-model-example.json` into the `tools` list, set `"group": "predictive"` and `"dataSource": "nsqip"` (this adds the NSQIP disclaimer), and replace the made-up numbers with your fitted model:
 - `intercept` and one entry per predictor in `inputs`:
   - `"type": "number"`: `coef` is per unit; optional `center` (coefficient applies to value − center), `unit`, `min`, `max`, `default`
   - `"type": "binary"`: `coef` is added when the box is checked
@@ -55,7 +55,7 @@ The page computes 1 / (1 + e^−LP) in the browser, shows the coefficient and od
 **New established calculators** (published formulas) get their own page: copy `src/pages/calculators/cvai.html`, add the logic to `public/assets/js/calc.js`, add an entry in `calculators.json`, and run `python3 build.py`.
 
 ## Everyday edits
-- **Meeting dates:** `public/data/meetings.json`. Past meetings disappear automatically.
+- **Meeting dates:** `public/data/meetings.json`. Only meetings with `"confirmed": true` and a start date are shown; past meetings disappear automatically.
 - **Page text, header, footer:** files in `src/`, then `python3 build.py` (regenerates `public/`). Commit both. (`public/` is committed, so the Cloudflare build doesn't need Python.)
 - **Colors and type:** tokens at the top of `public/assets/css/site.css`.
 - **Logo:** `public/assets/img/logo.svg` and `public/favicon.svg` (the skull from the CranioSTRIP mark, without the blood drop).

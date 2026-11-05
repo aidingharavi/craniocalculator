@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facial Injury Severity Scale (FISS) calculator | CranioCalc</title>
+<meta name="description" content="Calculate the Facial Injury Severity Scale for craniomaxillofacial trauma from mandibular, midface, and upper face fractures and facial lacerations.">
+<link rel="canonical" href="https://craniocalc.com/calculators/fiss">
+<meta property="og:title" content="Facial Injury Severity Scale (FISS) calculator | CranioCalc">
+<meta property="og:description" content="Calculate the Facial Injury Severity Scale for craniomaxillofacial trauma from mandibular, midface, and upper face fractures and facial lacerations.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://craniocalc.com/calculators/fiss">
+<meta property="og:image" content="https://craniocalc.com/apple-touch-icon.png">
+<meta name="theme-color" content="#f2f4f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10171c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="New craniofacial research" href="/research.xml">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=202611042318">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="CranioCalc home">
+      <img src="/assets/img/logo.svg" alt="" width="40" height="39">
+      <span>CranioCalc</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/calculators/" aria-current="page">Calculators</a></li>
+        <li><a href="/research">New craniofacial research</a></li>
+        <li><a href="/collaboration">Collaboration</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Facial Injury Severity Scale</h1>
+    <p class="lede">A point score for craniomaxillofacial trauma, summed across the mandible, midface, upper face, and soft tissue. The result updates as you type.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="fiss-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <h3 class="small" style="margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em">Mandible</h3>
+      <div class="field-row">
+        <div class="field">
+          <label for="fiss-mbody">Body, ramus, or symphysis fractures</label>
+          <input type="number" id="fiss-mbody" data-pts="2" inputmode="numeric" min="0" max="6" step="1" value="0">
+          <p class="hint">2 points each</p>
+        </div>
+        <div class="field">
+          <label for="fiss-mcond">Condylar or coronoid fractures</label>
+          <input type="number" id="fiss-mcond" data-pts="1" inputmode="numeric" min="0" max="4" step="1" value="0">
+          <p class="hint">1 point each</p>
+        </div>
+      </div>
+      <div class="field"><label class="check-input"><input type="checkbox" data-pts="1"> Mandibular dentoalveolar injury (1)</label></div>
+
+      <h3 class="small" style="margin:20px 0 8px;text-transform:uppercase;letter-spacing:.06em">Midface</h3>
+      <div class="field"><label class="check-input"><input type="checkbox" data-pts="1"> Maxillary dentoalveolar injury (1)</label></div>
+      <div class="field"><label class="check-input"><input type="checkbox" data-pts="2"> Le Fort I (2)</label></div>
+      <div class="field"><label class="check-input"><input type="checkbox" data-pts="4"> Le Fort II (4)</label></div>
+      <div class="field"><label class="check-input"><input type="checkbox" data-pts="6"> Le Fort III (6)</label></div>
+      <div class="field"><label class="check-input"><input type="checkbox" data-pts="3"> Naso-orbito-ethmoid fracture (3)</label></div>
+      <div class="field-row">
+        <div class="field">
+          <label for="fiss-zmc">Zygomaticomaxillary complex fractures</label>
+          <input type="number" id="fiss-zmc" data-pts="1" inputmode="numeric" min="0" max="2" step="1" value="0">
+          <p class="hint">1 point each side</p>
+        </div>
+        <div class="field">
+          <label class="check-input" style="margin-top:28px"><input type="checkbox" data-pts="1"> Nasal fracture (1)</label>
+        </div>
+      </div>
+
+      <h3 class="small" style="margin:20px 0 8px;text-transform:uppercase;letter-spacing:.06em">Upper face</h3>
+      <div class="field-row">
+        <div class="field">
+          <label for="fiss-orb">Orbital roof or rim fractures</label>
+          <input type="number" id="fiss-orb" data-pts="1" inputmode="numeric" min="0" max="4" step="1" value="0">
+          <p class="hint">1 point each</p>
+        </div>
+        <div class="field">
+          <label for="fiss-frontal">Frontal sinus or frontal bone</label>
+          <select id="fiss-frontal" data-select>
+            <option value="0">No fracture</option>
+            <option value="1">Nondisplaced (1)</option>
+            <option value="5">Displaced (5)</option>
+          </select>
+        </div>
+      </div>
+
+      <h3 class="small" style="margin:20px 0 8px;text-transform:uppercase;letter-spacing:.06em">Soft tissue</h3>
+      <div class="field">
+        <label for="fiss-lac">Facial lacerations longer than 10 cm</label>
+        <input type="number" id="fiss-lac" data-pts="1" inputmode="numeric" min="0" max="10" step="1" value="0">
+        <p class="hint">1 point each</p>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">FISS = sum of points for each fracture and laceration</span></p>
+      <p>Points are assigned by anatomic region and weighted by the complexity of each injury: Le Fort III and displaced frontal sinus fractures score highest. Each mandibular, zygomaticomaxillary, and orbital fracture is counted separately. There is no maximum score and no fixed severity cutoffs.</p>
+      <p>In the development study of adults with facial fractures, higher scores were associated with longer hospital stays and higher hospital charges. The scale was developed in adults, and pediatric fracture patterns differ.</p>
+      <p class="small muted">Source: Bagheri SC, Dierks EJ, Kademani D, et al. Application of a facial injury severity scale in craniomaxillofacial trauma. <em>J Oral Maxillofac Surg.</em> 2006;64(3):408–414. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Application+of+a+facial+injury+severity+scale+in+craniomaxillofacial+trauma" target="_blank" rel="noopener">Find on PubMed</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="fiss-out">
+        <div class="value">0</div>
+        <div class="grade">Facial Injury Severity Scale</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>For research and education.</strong> Nothing on this site is medical advice or a substitute for clinical judgment. Calculators and models are not FDA-cleared devices. Do not enter identifiable patient information.</p>
+      <p>&copy; <span data-year></span> CranioCalc. Literature data from PubMed (US National Library of Medicine).</p>
+    </div>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/legal">Terms and privacy</a></li>
+      <li><a href="/research.xml">RSS</a></li>
+      <li><a href="mailto:hello@craniocalc.com">hello@craniocalc.com</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=202611042318" defer></script>
+<script src="/assets/js/calc.js?v=202611042318" defer></script>
+</body>
+</html>

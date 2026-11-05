@@ -1,0 +1,68 @@
+<!--{"title": "Head circumference z-score calculator (WHO)", "description": "Head circumference z-score and percentile for age and sex from the WHO Child Growth Standards, birth to 5 years, with optional correction for prematurity.", "nav": "calculators", "scripts": ["calc.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Head circumference z-score</h1>
+    <p class="lede">Occipitofrontal head circumference compared with the WHO Child Growth Standards, birth to 5 years. The result updates as you type.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="hc-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <fieldset class="field" style="border:0;padding:0;margin:0 0 4px">
+        <legend style="font-weight:550;font-size:.95rem;margin-bottom:8px">Sex</legend>
+        <label class="check"><input type="radio" name="hc-sex" value="boys" checked> Male</label>
+        <label class="check" style="margin-left:18px"><input type="radio" name="hc-sex" value="girls"> Female</label>
+      </fieldset>
+      <div class="field-row">
+        <div class="field">
+          <label for="hc-age">Chronological age</label>
+          <input type="number" id="hc-age" inputmode="decimal" min="0" max="60" step="any" placeholder="e.g. 6">
+        </div>
+        <div class="field">
+          <label for="hc-unit">Unit</label>
+          <select id="hc-unit">
+            <option value="1">Months</option>
+            <option value="0.2299794661">Weeks</option>
+            <option value="0.0328542094">Days</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="hc-hc">Head circumference</label>
+        <div class="unit-input"><input type="number" id="hc-hc" inputmode="decimal" min="20" max="65" step="0.1" placeholder="e.g. 43.3"><span>cm</span></div>
+      </div>
+      <div class="field">
+        <label for="hc-ga">Gestational age at birth (optional)</label>
+        <div class="unit-input"><input type="number" id="hc-ga" inputmode="decimal" min="22" max="42" step="0.1" placeholder="e.g. 32"><span>weeks</span></div>
+        <p class="hint">If under 37 weeks, age is corrected for prematurity until 24 months of chronological age.</p>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">z = (HC ÷ M − 1) ÷ S</span></p>
+      <p>M (median) and S (coefficient of variation) come from the WHO head circumference-for-age standards for the child's sex. The Box-Cox power L equals 1 at every age for head circumference, so the LMS method reduces to the formula above. Monthly values are interpolated linearly for ages between whole months (1 month = 30.4375 days).</p>
+      <p>Corrected age subtracts the weeks born early (40 − gestational age) from chronological age. Correction is commonly applied for infants born before 37 weeks through 2 years of age.</p>
+      <p>Microcephaly is commonly defined as a head circumference more than 2 standard deviations below the mean for age and sex (severe below −3), and macrocephaly as more than 2 above. Head circumference does not reflect head shape: children with sagittal synostosis, for example, can have a normal or large circumference.</p>
+      <p class="small muted">Source: WHO Multicentre Growth Reference Study Group. <em>WHO Child Growth Standards: Head circumference-for-age, arm circumference-for-age, triceps skinfold-for-age and subscapular skinfold-for-age. Methods and development.</em> Geneva: World Health Organization; 2007. <a href="https://www.who.int/tools/child-growth-standards/standards/head-circumference-for-age" target="_blank" rel="noopener">WHO standards</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="hc-out">
+        <div class="value">–</div>
+        <div class="grade muted">Enter age and head circumference</div>
+      </div>
+      <ol class="scale" id="hc-scale" aria-label="Head circumference z-score bands">
+        <li data-band="sev-micro"><span>&lt; −3</span><span>Severe microcephaly range</span><span class="range">&lt; 0.1st pct</span></li>
+        <li data-band="micro"><span>−3 to &lt; −2</span><span>Microcephaly range</span><span class="range">&lt; 2.3rd pct</span></li>
+        <li data-band="normal"><span>−2 to +2</span><span>Within 2 SD of the median</span><span class="range"></span></li>
+        <li data-band="macro"><span>&gt; +2 to +3</span><span>Macrocephaly range</span><span class="range">&gt; 97.7th pct</span></li>
+        <li data-band="sev-macro"><span>&gt; +3</span><span>Marked macrocephaly range</span><span class="range">&gt; 99.9th pct</span></li>
+      </ol>
+    </div>
+  </div>
+</section>

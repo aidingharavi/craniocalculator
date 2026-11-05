@@ -47,8 +47,10 @@
   // Meetings
   getJson("/data/meetings.json")
     .then((data) => {
-      const { dated, tba } = window.CFMeetings.upcoming(data);
-      document.getElementById("meetings-list").innerHTML = `<ul class="meetings">${[...dated, ...tba].map(window.CFMeetings.item).join("")}</ul>`;
+      const { dated } = window.CFMeetings.upcoming(data);
+      document.getElementById("meetings-list").innerHTML = dated.length
+        ? `<ul class="meetings">${dated.map(window.CFMeetings.item).join("")}</ul>`
+        : '<p class="empty">No confirmed meeting dates right now.</p>';
       document.getElementById("meetings-note").textContent = `Dates last checked ${fmtDate(data.lastChecked, {
         month: "long",
         day: "numeric",

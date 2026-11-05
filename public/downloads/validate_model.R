@@ -1,4 +1,4 @@
-# craniocalc external validation script
+# CranioCalc external validation script
 # -------------------------------------------------------------------------
 # Computes aggregate performance metrics for a binary-outcome prediction
 # model on a local cohort. Only summary statistics are written out; no

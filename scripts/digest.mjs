@@ -198,7 +198,7 @@ function rss(d) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>New craniofacial research | craniocalc</title>
+    <title>New craniofacial research | CranioCalc</title>
     <link>${SITE}/research</link>
     <description>A weekly selection of new craniofacial, cleft, and pediatric plastic surgery papers from PubMed.</description>
     <language>en</language>

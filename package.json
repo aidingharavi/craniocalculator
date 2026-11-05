@@ -2,7 +2,7 @@
   "name": "craniocalc",
   "private": true,
   "type": "module",
-  "description": "craniocalc: craniofacial surgery calculators, outcome models, and a weekly research digest",
+  "description": "CranioCalc: craniofacial surgery calculators, outcome models, and a weekly research digest",
   "scripts": {
     "build": "echo \"public/ is prebuilt and committed. After editing src/, run: python3 build.py\"",
     "dev": "python3 build.py && npx wrangler dev",

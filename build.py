@@ -26,7 +26,7 @@ NAV = [
     ("about", "/about", "About"),
 ]
 
-SITE = "craniocalc"
+SITE = "CranioCalc"
 
 
 def build():

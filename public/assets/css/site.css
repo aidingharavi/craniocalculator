@@ -1,4 +1,4 @@
-/* craniocalc
+/* CranioCalc
    Palette: cool lightbox paper, slate ink, and gentian violet (the surgical skin-marker ink)
    as the single accent. Type: Bricolage Grotesque for interface and headings,
    Source Serif 4 for anything meant to be read at length. */
@@ -451,7 +451,7 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 .trial dl .loc { grid-column: 1 / -1; }
 #digest { margin-top: 32px; }
 
-/* craniocalc logo (skull illustration from the CranioSTRIP mark) */
+/* CranioCalc logo (skull illustration from the CranioSTRIP mark) */
 .wordmark img { width: 40px; height: auto; display: block; }
 .wordmark span { font-size: 1.25rem; }
 
@@ -486,3 +486,10 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 [hidden] { display: none !important; }
 .index.simple a.row { grid-template-columns: 1fr; padding: 14px 4px; }
 .wordmark img { width: 44px; }
+
+/* Calculator hub: established calculators listed by name only */
+.index.names-only a.row { grid-template-columns: minmax(0, 1fr) auto; }
+@media (min-width: 900px) {
+  .index.names-only { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; border-top: 0; }
+  .index.names-only li:nth-child(-n+2) { border-top: 1px solid var(--rule); }
+}

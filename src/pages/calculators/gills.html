@@ -1,0 +1,41 @@
+<!--{"title": "GILLS score for tongue-lip adhesion in Robin sequence", "description": "Calculate the GILLS score (GERD, preoperative intubation, late operation, low birth weight, syndromic diagnosis) to help select infants with Robin sequence for tongue-lip adhesion.", "nav": "calculators", "scripts": ["calc.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>GILLS score</h1>
+    <p class="lede">Five preoperative factors that predict failure of tongue-lip adhesion in infants with Robin sequence. Check every factor present.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="gills-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <div class="field"><label class="check-input"><input type="checkbox" data-point> <span><strong>G</strong>astroesophageal reflux disease</span></label></div>
+      <div class="field"><label class="check-input"><input type="checkbox" data-point> <span>Preoperative <strong>i</strong>ntubation</span></label></div>
+      <div class="field"><label class="check-input"><input type="checkbox" data-point> <span><strong>L</strong>ate operation (after 2 weeks of age)</span></label></div>
+      <div class="field"><label class="check-input"><input type="checkbox" data-point> <span><strong>L</strong>ow birth weight (under 2,500 g)</span></label></div>
+      <div class="field"><label class="check-input"><input type="checkbox" data-point> <span><strong>S</strong>yndromic diagnosis</span></label></div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">GILLS score = 1 point for each factor present (0 to 5)</span></p>
+      <p>The score was derived from a retrospective review of infants with Robin sequence treated with tongue-lip adhesion (TLA) for airway obstruction. A score of 2 or less was associated with successful TLA, while scores of 3 or more were associated with failure, defined as needing a further airway procedure such as tracheostomy.</p>
+      <p>The score was developed for TLA. It has been studied in infants undergoing mandibular distraction, but it was not designed for that procedure. Airway decisions in Robin sequence depend on polysomnography, airway endoscopy, feeding, and growth, and should be made by a multidisciplinary team.</p>
+      <p class="small muted">Source: Rogers GF, Murthy AS, LaBrie RA, Mulliken JB. The GILLS score: part I. Patient selection for tongue-lip adhesion in Robin sequence. <em>Plast Reconstr Surg.</em> 2011;128(1):243–251. <a href="https://pubmed.ncbi.nlm.nih.gov/21701340/" target="_blank" rel="noopener">PubMed 21701340</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="gills-out">
+        <div class="value">0</div>
+        <div class="grade">Favorable for TLA</div>
+      </div>
+      <ol class="scale" id="gills-scale" aria-label="GILLS score interpretation">
+        <li data-band="low"><span>0 to 2</span><span>Associated with TLA success</span><span class="range"></span></li>
+        <li data-band="high"><span>3 to 5</span><span>Associated with TLA failure</span><span class="range"></span></li>
+      </ol>
+    </div>
+  </div>
+</section>

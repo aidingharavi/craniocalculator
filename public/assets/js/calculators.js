@@ -10,8 +10,11 @@
   const badge = (t) => BADGE[t.status] || BADGE.planned;
   const hrefFor = (t) => (t.kind === "model" ? `/calculators/model?id=${encodeURIComponent(t.id)}` : t.href);
 
-  const row = (t) =>
-    `<li><a class="row" href="${esc(hrefFor(t))}"><span class="row-title">${esc(t.name)}</span><span class="row-desc">${esc(t.summary)}</span><span class="row-meta">${badge(t)}</span></a></li>`;
+  // Groups with "showSummary": false list names only.
+  const row = (t, g) =>
+    `<li><a class="row" href="${esc(hrefFor(t))}"><span class="row-title">${esc(t.name)}</span>${
+      g.showSummary === false ? "" : `<span class="row-desc">${esc(t.summary)}</span>`
+    }<span class="row-meta">${badge(t)}</span></a></li>`;
 
   /* ---------- Hub ---------- */
   async function hub(root) {
@@ -25,10 +28,10 @@
             ${g.intro ? `<p class="muted">${esc(g.intro)}</p>` : ""}
             ${
               tools.length
-                ? `<ul class="index">${tools.map(row).join("")}</ul>`
+                ? `<ul class="index${g.showSummary === false ? " names-only" : ""}">${tools.map((t) => row(t, g)).join("")}</ul>`
                 : `<p class="empty" style="border-top:1px solid var(--rule)">${esc(g.empty || "Coming soon.")}</p>`
             }
-            ${g.disclaimer && tools.length ? `<p class="disclaimer">${esc(g.disclaimer)}</p>` : ""}
+            ${d.nsqipDisclaimer && tools.some((t) => t.dataSource === "nsqip") ? `<p class="disclaimer">${esc(d.nsqipDisclaimer)}</p>` : ""}
           </section>`;
         })
         .join("");
@@ -143,7 +146,7 @@
       root.innerHTML = `<h1>Model not found</h1><p>There's no model with that name. <a href="/calculators/">See all calculators</a>.</p>`;
       return;
     }
-    document.title = `${t.name} | craniocalc`;
+    document.title = `${t.name} | CranioCalc`;
     const group = d.groups.find((g) => g.id === t.group) || {};
     const live = t.status === "live";
     const list = (arr) => (arr && arr.length ? `<ul>${arr.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : "");
@@ -180,7 +183,7 @@
       ${live && t.engine ? engineForm(t) : ""}
       ${live && !t.engine && t.embedUrl ? `<iframe class="embed" src="${esc(t.embedUrl)}" title="${esc(t.name)} calculator" loading="lazy"></iframe>` : ""}
       ${fields.length ? `<h2 style="margin-top:48px">Model card</h2><dl class="card-grid">${fields.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>` : ""}
-      ${t.dataSource === "nsqip" && group.disclaimer ? `<p class="disclaimer small muted measure" style="margin-top:24px">${esc(group.disclaimer)}</p>` : ""}
+      ${t.dataSource === "nsqip" && d.nsqipDisclaimer ? `<p class="disclaimer small muted measure" style="margin-top:24px">${esc(d.nsqipDisclaimer)}</p>` : ""}
       <p class="notice measure" style="margin-top:24px">For research and education. Not an FDA-cleared device. Predictions describe populations similar to the development cohort and should not be the sole basis for any clinical decision.</p>`;
 
     if (live && t.engine) bindEngine(t, root);

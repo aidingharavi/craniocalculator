@@ -1,7 +1,7 @@
 {
   "_note": "EXAMPLE ONLY: the coefficients below are made up to show the format. Copy this object into the 'tools' list in public/data/calculators.json and replace every value with your fitted model.",
   "id": "example-nsqip-ssi",
-  "group": "nsqip",
+  "group": "predictive",
   "kind": "model",
   "name": "Surgical site infection after cranial vault remodeling",
   "summary": "Estimates 30-day surgical site infection risk from preoperative factors.",

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corrected age calculator for preterm infants | CranioCalc</title>
+<meta name="description" content="Chronological age, corrected age, and postmenstrual age for infants born preterm, using AAP perinatal age terminology.">
+<link rel="canonical" href="https://craniocalc.com/calculators/corrected-age">
+<meta property="og:title" content="Corrected age calculator for preterm infants | CranioCalc">
+<meta property="og:description" content="Chronological age, corrected age, and postmenstrual age for infants born preterm, using AAP perinatal age terminology.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://craniocalc.com/calculators/corrected-age">
+<meta property="og:image" content="https://craniocalc.com/apple-touch-icon.png">
+<meta name="theme-color" content="#f2f4f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10171c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="New craniofacial research" href="/research.xml">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=202611042318">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="CranioCalc home">
+      <img src="/assets/img/logo.svg" alt="" width="40" height="39">
+      <span>CranioCalc</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/calculators/" aria-current="page">Calculators</a></li>
+        <li><a href="/research">New craniofacial research</a></li>
+        <li><a href="/collaboration">Collaboration</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Corrected age</h1>
+    <p class="lede">Chronological, corrected, and postmenstrual age for an infant born preterm. The result updates as you type.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="ca-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <div class="field">
+        <label for="ca-dob">Date of birth</label>
+        <input type="date" id="ca-dob">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="ca-gaw">Gestational age at birth</label>
+          <div class="unit-input"><input type="number" id="ca-gaw" inputmode="numeric" min="22" max="44" step="1" placeholder="e.g. 31"><span>weeks</span></div>
+        </div>
+        <div class="field">
+          <label for="ca-gad">&nbsp;</label>
+          <div class="unit-input"><input type="number" id="ca-gad" inputmode="numeric" min="0" max="6" step="1" placeholder="0" aria-label="Additional days"><span>days</span></div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="ca-date">Date of assessment</label>
+        <input type="date" id="ca-date">
+        <p class="hint">Defaults to today.</p>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">Corrected age = chronological age − (40 weeks − gestational age at birth)</span></p>
+      <p><span class="formula">Postmenstrual age = gestational age at birth + chronological age</span></p>
+      <p>Chronological age is the time elapsed since birth. Corrected age is the age the child would be if born at 40 weeks, and is the preferred term for children up to 3 years of age who were born preterm. Postmenstrual age is used during the perinatal period, typically while the infant is in hospital.</p>
+      <p>In craniofacial practice, corrected age is used to interpret head growth and head shape measurements against age norms and to time interventions such as cranial orthosis treatment.</p>
+      <p class="small muted">Source: Engle WA; American Academy of Pediatrics Committee on Fetus and Newborn. Age terminology during the perinatal period. <em>Pediatrics.</em> 2004;114(5):1362–1364. <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Age+terminology+during+the+perinatal+period+Engle" target="_blank" rel="noopener">Find on PubMed</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="ca-out">
+        <div class="value">–</div>
+        <div class="grade muted">Enter date of birth and gestational age</div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>For research and education.</strong> Nothing on this site is medical advice or a substitute for clinical judgment. Calculators and models are not FDA-cleared devices. Do not enter identifiable patient information.</p>
+      <p>&copy; <span data-year></span> CranioCalc. Literature data from PubMed (US National Library of Medicine).</p>
+    </div>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/legal">Terms and privacy</a></li>
+      <li><a href="/research.xml">RSS</a></li>
+      <li><a href="mailto:hello@craniocalc.com">hello@craniocalc.com</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=202611042318" defer></script>
+<script src="/assets/js/calc.js?v=202611042318" defer></script>
+</body>
+</html>

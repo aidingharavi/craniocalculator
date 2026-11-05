@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argenta classification of positional plagiocephaly and brachycephaly | CranioCalc</title>
+<meta name="description" content="Classify deformational plagiocephaly (types I to V) and brachycephaly (types I to III) from clinical findings using the Argenta classification.">
+<link rel="canonical" href="https://craniocalc.com/calculators/argenta">
+<meta property="og:title" content="Argenta classification of positional plagiocephaly and brachycephaly | CranioCalc">
+<meta property="og:description" content="Classify deformational plagiocephaly (types I to V) and brachycephaly (types I to III) from clinical findings using the Argenta classification.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://craniocalc.com/calculators/argenta">
+<meta property="og:image" content="https://craniocalc.com/apple-touch-icon.png">
+<meta name="theme-color" content="#f2f4f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10171c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="New craniofacial research" href="/research.xml">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css?v=202611042318">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="CranioCalc home">
+      <img src="/assets/img/logo.svg" alt="" width="40" height="39">
+      <span>CranioCalc</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="/calculators/" aria-current="page">Calculators</a></li>
+        <li><a href="/research">New craniofacial research</a></li>
+        <li><a href="/collaboration">Collaboration</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Argenta classification</h1>
+    <p class="lede">Clinical staging of positional plagiocephaly and brachycephaly from examination findings. Check every finding present.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="arg-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <fieldset class="field" style="border:0;padding:0;margin:0 0 4px">
+        <legend style="font-weight:550;font-size:.95rem;margin-bottom:8px">Pattern</legend>
+        <label class="check"><input type="radio" name="arg-pattern" value="plagio" checked> Plagiocephaly (asymmetric)</label>
+        <label class="check" style="margin-left:18px"><input type="radio" name="arg-pattern" value="brachy"> Brachycephaly (central)</label>
+      </fieldset>
+      <div data-pattern="plagio">
+        <div class="field"><label class="check-input"><input type="checkbox" data-type="1"> Posterior (occipital) flattening</label></div>
+        <div class="field"><label class="check-input"><input type="checkbox" data-type="2"> Ear malposition (anterior shift on the flattened side)</label></div>
+        <div class="field"><label class="check-input"><input type="checkbox" data-type="3"> Forehead deformity (frontal asymmetry)</label></div>
+        <div class="field"><label class="check-input"><input type="checkbox" data-type="4"> Facial asymmetry</label></div>
+        <div class="field"><label class="check-input"><input type="checkbox" data-type="5"> Vertical or temporal skull growth (temporal bossing, increased posterior vault height)</label></div>
+      </div>
+      <div data-pattern="brachy" hidden>
+        <div class="field"><label class="check-input"><input type="checkbox" data-type="1"> Central posterior (occipital) flattening</label></div>
+        <div class="field"><label class="check-input"><input type="checkbox" data-type="2"> Widening of the posterior skull</label></div>
+        <div class="field"><label class="check-input"><input type="checkbox" data-type="3"> Vertical or temporal skull growth (temporal bossing, increased vault height)</label></div>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p>Each type adds a finding to the one before it, so the type is set by the most advanced finding present. Plagiocephaly runs from type I, deformity limited to the back of the skull, to type V, with abnormal vertical or temporal growth. Brachycephaly runs from type I, central posterior flattening, to type III, with vertical or temporal growth.</p>
+      <p>Argenta and colleagues proposed the classification as a simple clinical way to grade severity and guide treatment, from repositioning for milder types to cranial orthosis for more advanced ones. Lambdoid or bicoronal craniosynostosis should be excluded clinically before applying it.</p>
+      <p class="small muted">Source: Argenta L, David L, Thompson J. Clinical classification of positional plagiocephaly. <em>J Craniofac Surg.</em> 2004;15(3):368–372. <a href="https://pubmed.ncbi.nlm.nih.gov/15111792/" target="_blank" rel="noopener">PubMed 15111792</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="arg-out">
+        <div class="value">–</div>
+        <div class="grade muted">Check the findings present</div>
+      </div>
+      <ol class="scale" id="arg-scale-plagio" aria-label="Argenta plagiocephaly types">
+        <li data-type="1"><span>Type I</span><span>Posterior flattening only</span><span class="range"></span></li>
+        <li data-type="2"><span>Type II</span><span>+ ear malposition</span><span class="range"></span></li>
+        <li data-type="3"><span>Type III</span><span>+ forehead deformity</span><span class="range"></span></li>
+        <li data-type="4"><span>Type IV</span><span>+ facial asymmetry</span><span class="range"></span></li>
+        <li data-type="5"><span>Type V</span><span>+ vertical or temporal growth</span><span class="range"></span></li>
+      </ol>
+      <ol class="scale" id="arg-scale-brachy" aria-label="Argenta brachycephaly types" hidden>
+        <li data-type="1"><span>Type I</span><span>Central posterior flattening</span><span class="range"></span></li>
+        <li data-type="2"><span>Type II</span><span>+ posterior widening</span><span class="range"></span></li>
+        <li data-type="3"><span>Type III</span><span>+ vertical or temporal growth</span><span class="range"></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <p><strong>For research and education.</strong> Nothing on this site is medical advice or a substitute for clinical judgment. Calculators and models are not FDA-cleared devices. Do not enter identifiable patient information.</p>
+      <p>&copy; <span data-year></span> CranioCalc. Literature data from PubMed (US National Library of Medicine).</p>
+    </div>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/legal">Terms and privacy</a></li>
+      <li><a href="/research.xml">RSS</a></li>
+      <li><a href="mailto:hello@craniocalc.com">hello@craniocalc.com</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="/assets/js/site.js?v=202611042318" defer></script>
+<script src="/assets/js/calc.js?v=202611042318" defer></script>
+</body>
+</html>
