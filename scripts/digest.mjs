@@ -18,16 +18,16 @@ const MAX_PICKS = Number(process.env.DIGEST_PICKS || 12);
 const env = process.env;
 
 export const CATEGORIES = [
-  "Craniosynostosis and cranial vault",
-  "Cleft lip and palate",
-  "Speech and velopharyngeal function",
-  "Ear and microtia",
-  "Facial skeleton, trauma, and orthognathic surgery",
-  "Facial nerve and reanimation",
-  "Cranioplasty and reconstruction",
-  "Syndromes and genetics",
-  "Airway and Robin sequence",
-  "Other craniofacial",
+  "Craniosynostosis and Cranial Vault",
+  "Cleft Lip and Palate",
+  "Speech and Velopharyngeal Function",
+  "Ear and Microtia",
+  "Facial Skeleton, Trauma, and Orthognathic Surgery",
+  "Facial Nerve and Reanimation",
+  "Cranioplasty and Reconstruction",
+  "Syndromes and Genetics",
+  "Airway and Robin Sequence",
+  "Other Craniofacial",
 ];
 
 const TOPIC = [
@@ -100,7 +100,7 @@ async function main() {
       );
       picks = (sel.picks || [])
         .filter((p) => byPmid.has(String(p.pmid)))
-        .map((p) => ({ pmid: String(p.pmid), category: CATEGORIES.includes(p.category) ? p.category : "Other craniofacial" }))
+        .map((p) => ({ pmid: String(p.pmid), category: CATEGORIES.includes(p.category) ? p.category : "Other Craniofacial" }))
         .filter((p, i, arr) => arr.findIndex((q) => q.pmid === p.pmid) === i)
         .slice(0, MAX_PICKS);
 
@@ -132,7 +132,7 @@ async function main() {
     picks = [...articles]
       .sort((x, y) => score(y) - score(x))
       .slice(0, MAX_PICKS)
-      .map((a) => ({ pmid: a.pmid, category: "Other craniofacial" }));
+      .map((a) => ({ pmid: a.pmid, category: "Other Craniofacial" }));
     generatedBy = "rules";
   }
 
@@ -198,7 +198,7 @@ function rss(d) {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>New craniofacial research | CranioCalc</title>
+    <title>New Craniofacial Research | CranioCalc</title>
     <link>${SITE}/research</link>
     <description>A weekly selection of new craniofacial, cleft, and pediatric plastic surgery papers from PubMed.</description>
     <language>en</language>

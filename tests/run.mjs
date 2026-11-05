@@ -123,7 +123,7 @@ await test("builds digest JSON, index, and RSS with Claude summaries", async () 
     ["efetch.fcgi", () => new Response(XML)],
     ["api.anthropic.com", (u, init) => {
       const p = JSON.parse(init.body).messages[0].content;
-      if (p.startsWith("New records")) return claudeRes('{"picks":[{"pmid":"38000002","category":"Cleft lip and palate"},{"pmid":"38000001","category":"Speech and velopharyngeal function"},{"pmid":"99999999","category":"Other craniofacial"}]}');
+      if (p.startsWith("New records")) return claudeRes('{"picks":[{"pmid":"38000002","category":"Cleft Lip and Palate"},{"pmid":"38000001","category":"Speech and Velopharyngeal Function"},{"pmid":"99999999","category":"Other Craniofacial"}]}');
       return claudeRes('```json\n{"intro":"A week weighted toward palate timing.","items":[{"pmid":"38000001","design":"Multicenter cohort, 412 children","takeaway":"Earlier repair was associated with less VPI."},{"pmid":"38000002","design":"Systematic review, 18 studies","takeaway":"Evidence on timing was inconsistent."}]}\n```');
     }],
   ]);

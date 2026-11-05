@@ -3,7 +3,7 @@
   "groups": [
     {
       "id": "established",
-      "name": "Established calculators",
+      "name": "Established Calculators",
       "showSummary": false
     },
     {
@@ -19,7 +19,7 @@
       "id": "cvai",
       "group": "established",
       "kind": "reference",
-      "name": "Cranial vault asymmetry index",
+      "name": "Cranial Vault Asymmetry Index",
       "summary": "Quantifies plagiocephaly from two cranial diagonals and grades it on the Children's Healthcare of Atlanta scale.",
       "href": "/calculators/cvai",
       "status": "live"
@@ -28,7 +28,7 @@
       "id": "cephalic-index",
       "group": "established",
       "kind": "reference",
-      "name": "Cephalic index",
+      "name": "Cephalic Index",
       "summary": "Head width as a percentage of length, for brachycephaly and scaphocephaly.",
       "href": "/calculators/cephalic-index",
       "status": "live"
@@ -37,7 +37,7 @@
       "id": "argenta",
       "group": "established",
       "kind": "reference",
-      "name": "Argenta classification",
+      "name": "Argenta Classification",
       "summary": "Clinical staging of positional plagiocephaly (types I to V) and brachycephaly (types I to III).",
       "href": "/calculators/argenta",
       "status": "live"
@@ -46,7 +46,7 @@
       "id": "head-circumference",
       "group": "established",
       "kind": "reference",
-      "name": "Head circumference z-score (WHO)",
+      "name": "Head Circumference Z-Score (WHO)",
       "summary": "Head circumference z-score and percentile for age and sex, birth to 5 years.",
       "href": "/calculators/head-circumference",
       "status": "live"
@@ -55,7 +55,7 @@
       "id": "corrected-age",
       "group": "established",
       "kind": "reference",
-      "name": "Corrected age for prematurity",
+      "name": "Corrected Age for Prematurity",
       "summary": "Chronological, corrected, and postmenstrual age for infants born preterm.",
       "href": "/calculators/corrected-age",
       "status": "live"
@@ -64,7 +64,7 @@
       "id": "gills",
       "group": "established",
       "kind": "reference",
-      "name": "GILLS score",
+      "name": "GILLS Score",
       "summary": "Predicts tongue-lip adhesion success in Robin sequence from five preoperative factors.",
       "href": "/calculators/gills",
       "status": "live"
@@ -82,7 +82,7 @@
       "id": "blood-loss",
       "group": "established",
       "kind": "reference",
-      "name": "Estimated blood volume and allowable blood loss",
+      "name": "Estimated Blood Volume and Allowable Blood Loss",
       "summary": "Weight- and age-based blood volume with maximum allowable blood loss by the Gross formula, for cranial vault and other pediatric cases.",
       "href": "/calculators/blood-loss",
       "status": "live"
@@ -91,7 +91,7 @@
       "id": "maintenance-fluids",
       "group": "established",
       "kind": "reference",
-      "name": "Maintenance fluids (Holliday-Segar)",
+      "name": "Maintenance Fluids (Holliday-Segar)",
       "summary": "Hourly and daily maintenance fluid requirements by weight.",
       "href": "/calculators/maintenance-fluids",
       "status": "live"
@@ -121,7 +121,7 @@
       "id": "cleft-speech",
       "group": "predictive",
       "kind": "model",
-      "name": "Cleft palate speech outcomes",
+      "name": "Cleft Palate Speech Outcomes",
       "summary": "Machine learning model estimating speech outcomes after cleft palate repair.",
       "status": "in-development",
       "dataSource": "institutional",

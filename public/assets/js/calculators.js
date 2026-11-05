@@ -4,7 +4,7 @@
 
   const BADGE = {
     live: '<span class="badge live">Live</span>',
-    "in-development": '<span class="badge dev">In development</span>',
+    "in-development": '<span class="badge dev">In Development</span>',
     planned: '<span class="badge">Planned</span>',
   };
   const badge = (t) => BADGE[t.status] || BADGE.planned;
@@ -143,7 +143,7 @@
       t = d.tools.find((x) => x.id === id && x.kind === "model");
     } catch {}
     if (!t) {
-      root.innerHTML = `<h1>Model not found</h1><p>There's no model with that name. <a href="/calculators/">See all calculators</a>.</p>`;
+      root.innerHTML = `<h1>Model Not Found</h1><p>There's no model with that name. <a href="/calculators/">See All Calculators</a>.</p>`;
       return;
     }
     document.title = `${t.name} | CranioCalc`;
@@ -182,7 +182,7 @@
       }
       ${live && t.engine ? engineForm(t) : ""}
       ${live && !t.engine && t.embedUrl ? `<iframe class="embed" src="${esc(t.embedUrl)}" title="${esc(t.name)} calculator" loading="lazy"></iframe>` : ""}
-      ${fields.length ? `<h2 style="margin-top:48px">Model card</h2><dl class="card-grid">${fields.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>` : ""}
+      ${fields.length ? `<h2 style="margin-top:48px">Model Card</h2><dl class="card-grid">${fields.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>` : ""}
       ${t.dataSource === "nsqip" && d.nsqipDisclaimer ? `<p class="disclaimer small muted measure" style="margin-top:24px">${esc(d.nsqipDisclaimer)}</p>` : ""}
       <p class="notice measure" style="margin-top:24px">For research and education. Not an FDA-cleared device. Predictions describe populations similar to the development cohort and should not be the sole basis for any clinical decision.</p>`;
 
