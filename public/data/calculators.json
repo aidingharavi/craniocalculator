@@ -133,7 +133,7 @@
       "group": "established",
       "kind": "reference",
       "name": "GILLS Score",
-      "summary": "Predicts tongue-lip adhesion success in Robin sequence from five preoperative factors.",
+      "summary": "Predicts whether tongue-lip adhesion will succeed in infants with Pierre Robin sequence, using five preoperative factors.",
       "keywords": [
         "Pierre Robin sequence",
         "Robin sequence",
