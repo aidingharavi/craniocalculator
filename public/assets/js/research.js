@@ -5,7 +5,7 @@
 
   function render(d) {
     if (!d || !d.items || !d.items.length) {
-      root.innerHTML = `<div class="empty"><p>The first issue is published on Monday morning. Subscribe to get it by email.</p></div>`;
+      root.innerHTML = "";
       return;
     }
     const groups = new Map();

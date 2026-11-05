@@ -1,5 +1,5 @@
 {
-  "_howto": "Each tool appears in its group (established or predictive) on /calculators/. Established tools link to their own page. Models open a model card at /calculators/model?id=<id>. status: live | in-development | planned. A model is calculated in the browser when it has an 'engine' (see examples/logistic-model-example.json), or embedded when it has an 'embedUrl' (e.g. a shinyapps.io app). Leave a field empty to hide it. Models built from ACS NSQIP data need \"dataSource\": \"nsqip\" so the NSQIP disclaimer is shown.",
+  "_howto": "Each tool appears in its group (established or predictive) on /calculators/. Established tools link to their own page. Models open a model card at /calculators/model?id=<id>. status: live | in-development | planned. A model is calculated in the browser when it has an 'engine' (see examples/logistic-model-example.json), or embedded when it has an 'embedUrl' (e.g. a shinyapps.io app). Leave a field empty to hide it. Models built from ACS NSQIP data need \"dataSource\": \"nsqip\" so the NSQIP disclaimer is shown. 'keywords' lists conditions and synonyms used by the header search.",
   "groups": [
     {
       "id": "established",
@@ -21,6 +21,23 @@
       "kind": "reference",
       "name": "Cranial Vault Asymmetry Index",
       "summary": "Quantifies plagiocephaly from two cranial diagonals and grades it on the Children's Healthcare of Atlanta scale.",
+      "keywords": [
+        "plagiocephaly",
+        "positional plagiocephaly",
+        "deformational plagiocephaly",
+        "flat head",
+        "flat head syndrome",
+        "head asymmetry",
+        "skull asymmetry",
+        "occipital flattening",
+        "torticollis",
+        "helmet",
+        "cranial orthosis",
+        "lambdoid synostosis",
+        "cranial diagonals",
+        "CVAI",
+        "CHOA"
+      ],
       "href": "/calculators/cvai",
       "status": "live"
     },
@@ -30,6 +47,19 @@
       "kind": "reference",
       "name": "Cephalic Index",
       "summary": "Head width as a percentage of length, for brachycephaly and scaphocephaly.",
+      "keywords": [
+        "brachycephaly",
+        "scaphocephaly",
+        "dolichocephaly",
+        "sagittal synostosis",
+        "bicoronal synostosis",
+        "craniosynostosis",
+        "head shape",
+        "cranial index",
+        "flat head",
+        "long narrow head",
+        "wide head"
+      ],
       "href": "/calculators/cephalic-index",
       "status": "live"
     },
@@ -39,6 +69,20 @@
       "kind": "reference",
       "name": "Argenta Classification",
       "summary": "Clinical staging of positional plagiocephaly (types I to V) and brachycephaly (types I to III).",
+      "keywords": [
+        "plagiocephaly",
+        "brachycephaly",
+        "positional plagiocephaly",
+        "deformational plagiocephaly",
+        "flat head",
+        "head shape",
+        "ear shift",
+        "facial asymmetry",
+        "torticollis",
+        "helmet",
+        "cranial orthosis",
+        "repositioning"
+      ],
       "href": "/calculators/argenta",
       "status": "live"
     },
@@ -48,6 +92,19 @@
       "kind": "reference",
       "name": "Head Circumference Z-Score (WHO)",
       "summary": "Head circumference z-score and percentile for age and sex, birth to 5 years.",
+      "keywords": [
+        "microcephaly",
+        "macrocephaly",
+        "head size",
+        "head growth",
+        "hydrocephalus",
+        "craniosynostosis",
+        "growth chart",
+        "percentile",
+        "OFC",
+        "occipitofrontal circumference",
+        "WHO growth standards"
+      ],
       "href": "/calculators/head-circumference",
       "status": "live"
     },
@@ -57,6 +114,17 @@
       "kind": "reference",
       "name": "Corrected Age for Prematurity",
       "summary": "Chronological, corrected, and postmenstrual age for infants born preterm.",
+      "keywords": [
+        "prematurity",
+        "preterm",
+        "premature infant",
+        "gestational age",
+        "adjusted age",
+        "postmenstrual age",
+        "NICU",
+        "growth",
+        "development"
+      ],
       "href": "/calculators/corrected-age",
       "status": "live"
     },
@@ -66,6 +134,19 @@
       "kind": "reference",
       "name": "GILLS Score",
       "summary": "Predicts tongue-lip adhesion success in Robin sequence from five preoperative factors.",
+      "keywords": [
+        "Pierre Robin sequence",
+        "Robin sequence",
+        "micrognathia",
+        "glossoptosis",
+        "airway obstruction",
+        "obstructive sleep apnea",
+        "tongue-lip adhesion",
+        "TLA",
+        "mandibular distraction",
+        "tracheostomy",
+        "cleft palate"
+      ],
       "href": "/calculators/gills",
       "status": "live"
     },
@@ -75,6 +156,22 @@
       "kind": "reference",
       "name": "Facial Injury Severity Scale",
       "summary": "Point score for craniomaxillofacial fractures and lacerations.",
+      "keywords": [
+        "facial fracture",
+        "facial trauma",
+        "maxillofacial trauma",
+        "mandible fracture",
+        "jaw fracture",
+        "Le Fort fracture",
+        "orbital fracture",
+        "zygoma fracture",
+        "ZMC",
+        "NOE",
+        "nasal fracture",
+        "frontal sinus fracture",
+        "laceration",
+        "injury severity"
+      ],
       "href": "/calculators/fiss",
       "status": "live"
     },
@@ -84,6 +181,20 @@
       "kind": "reference",
       "name": "Estimated Blood Volume and Allowable Blood Loss",
       "summary": "Weight- and age-based blood volume with maximum allowable blood loss by the Gross formula, for cranial vault and other pediatric cases.",
+      "keywords": [
+        "craniosynostosis surgery",
+        "cranial vault remodeling",
+        "transfusion",
+        "blood transfusion",
+        "blood loss",
+        "hemorrhage",
+        "anemia",
+        "hematocrit",
+        "blood volume",
+        "EBV",
+        "MABL",
+        "Gross formula"
+      ],
       "href": "/calculators/blood-loss",
       "status": "live"
     },
@@ -93,6 +204,16 @@
       "kind": "reference",
       "name": "Maintenance Fluids (Holliday-Segar)",
       "summary": "Hourly and daily maintenance fluid requirements by weight.",
+      "keywords": [
+        "IV fluids",
+        "intravenous fluids",
+        "maintenance fluids",
+        "dehydration",
+        "perioperative fluids",
+        "4-2-1 rule",
+        "Holliday-Segar",
+        "hydration"
+      ],
       "href": "/calculators/maintenance-fluids",
       "status": "live"
     },
@@ -102,6 +223,17 @@
       "kind": "model",
       "name": "CranioSTRIP",
       "summary": "Machine learning model estimating perioperative transfusion risk in craniosynostosis surgery.",
+      "keywords": [
+        "craniosynostosis",
+        "transfusion",
+        "blood transfusion",
+        "blood loss",
+        "cranial vault remodeling",
+        "sagittal synostosis",
+        "metopic synostosis",
+        "machine learning",
+        "prediction model"
+      ],
       "status": "in-development",
       "dataSource": "institutional",
       "version": "",
@@ -123,6 +255,18 @@
       "kind": "model",
       "name": "Cleft Palate Speech Outcomes",
       "summary": "Machine learning model estimating speech outcomes after cleft palate repair.",
+      "keywords": [
+        "cleft palate",
+        "cleft lip and palate",
+        "velopharyngeal insufficiency",
+        "VPI",
+        "velopharyngeal dysfunction",
+        "hypernasality",
+        "speech",
+        "palatoplasty",
+        "machine learning",
+        "prediction model"
+      ],
       "status": "in-development",
       "dataSource": "institutional",
       "version": "",

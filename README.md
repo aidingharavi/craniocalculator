@@ -55,6 +55,7 @@ The page computes 1 / (1 + e^−LP) in the browser, shows the coefficient and od
 **New established calculators** (published formulas) get their own page: copy `src/pages/calculators/cvai.html`, add the logic to `public/assets/js/calc.js`, add an entry in `calculators.json`, and run `python3 build.py`.
 
 ## Everyday edits
+- **Calculator search:** the header search box matches names, summaries, and each tool's `keywords` list (conditions and synonyms) in `calculators.json`; add keywords there when you add a calculator.
 - **Meeting dates:** `public/data/meetings.json`. Only meetings with `"confirmed": true` and a start date are shown; past meetings disappear automatically.
 - **Page text, header, footer:** files in `src/`, then `python3 build.py` (regenerates `public/`). Commit both. (`public/` is committed, so the Cloudflare build doesn't need Python.)
 - **Colors and type:** tokens at the top of `public/assets/css/site.css`.
