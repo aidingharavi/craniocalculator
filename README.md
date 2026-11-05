@@ -81,7 +81,6 @@ node scripts/digest.mjs          # build a digest issue (needs network + keys)
 ```
 
 ## Before going public
-- **Mayo IP:** confirm with your mentor and Mayo Clinic Ventures before publishing models built on Mayo data. They're listed as "in development" with no details until you fill them in.
 - **NSQIP:** check the exact disclaimer wording and any publication rules in your ACS NSQIP Data Use Agreement. The standard Participant Use File disclaimer is used in `calculators.json` (`groups[nsqip].disclaimer`) and on the Terms page.
 - **Regulatory:** keep "research and education" labeling on risk calculators; get advice before presenting any model as a clinical decision tool.
 - **About page:** add your full name, photo, and links (`src/pages/about.html`, marked TODO).
