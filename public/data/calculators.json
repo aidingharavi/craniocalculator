@@ -1,5 +1,5 @@
 {
-  "_howto": "Each tool appears in its group (established or predictive) on /calculators/. Established tools link to their own page. Models open a model card at /calculators/model?id=<id>. status: live | in-development | planned. A model is calculated in the browser when it has an 'engine' (see examples/logistic-model-example.json), or embedded when it has an 'embedUrl' (e.g. a shinyapps.io app). Leave a field empty to hide it. Models built from ACS NSQIP data need \"dataSource\": \"nsqip\" so the NSQIP disclaimer is shown. Search uses 'conditions' and 'procedures' (shown as the reason a calculator matched) and 'keywords' (synonyms and abbreviations).",
+  "_howto": "Each tool appears in its group (established or predictive) on /calculators/. Established tools link to their own page. Models open a model card at /calculators/model?id=<id>. status: live | in-development | planned. A model is calculated in the browser when it has an 'engine' (see examples/logistic-model-example.json), or embedded when it has an 'embedUrl' (e.g. a shinyapps.io app). Leave a field empty to hide it. Models built from ACS NSQIP data need \"dataSource\": \"nsqip\" so the NSQIP disclaimer is shown. Search uses 'conditions' and 'procedures' (shown as the reason a calculator matched) and 'keywords' (synonyms and abbreviations). Set \"origin\": \"team\" only for models our team developed; they get a 'Developed by our team' label.",
   "groups": [
     {
       "id": "established",
@@ -9,7 +9,7 @@
     {
       "id": "predictive",
       "name": "Predictive Models",
-      "intro": "Prediction models from single-center and multicenter data, including ACS NSQIP. Each has a model card describing its development cohort, validation, and limitations.",
+      "intro": "Prediction models from published studies, including ACS NSQIP data. Each has a model card crediting its authors and describing its development cohort, validation, and limitations.",
       "empty": "Predictive models are in preparation."
     }
   ],
@@ -703,7 +703,8 @@
       "limitations": [],
       "citation": "Deng J, Gharavi A, Heybati K, et al. J Plast Reconstr Aesthet Surg. 2026;118:209-220.",
       "code": "",
-      "href": "/calculators/craniostrip"
+      "href": "/calculators/craniostrip",
+      "origin": "team"
     },
     {
       "id": "cleft-speech",
@@ -743,7 +744,8 @@
       "limitations": [],
       "citation": "",
       "code": "",
-      "validationOpen": true
+      "validationOpen": true,
+      "origin": "team"
     }
   ]
 }

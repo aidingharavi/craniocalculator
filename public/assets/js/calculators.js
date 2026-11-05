@@ -14,7 +14,7 @@
   const row = (t, g) =>
     `<li><a class="row" href="${esc(hrefFor(t))}"><span class="row-title">${esc(t.name)}</span>${
       g.showSummary === false ? "" : `<span class="row-desc">${esc(t.summary)}</span>`
-    }<span class="row-meta">${badge(t)}</span></a></li>`;
+    }<span class="row-meta">${t.origin === "team" ? '<span class="badge">Developed by our team</span> ' : ""}${badge(t)}</span></a></li>`;
 
   /* ---------- Hub ---------- */
   async function hub(root) {
