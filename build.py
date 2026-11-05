@@ -21,7 +21,7 @@ OUT = ROOT / "public"
 
 NAV = [
     ("calculators", "/calculators/", "Calculators"),
-    ("research", "/research", "New Craniofacial Research"),
+    ("research", "/research", "Research"),
     ("collaboration", "/collaboration", "Collaboration"),
     ("about", "/about", "About"),
 ]

@@ -532,3 +532,7 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
   .site-search { position: static; }
   .site-search [role=listbox] { left: var(--gutter); right: var(--gutter); width: auto; top: 58px; }
 }
+
+/* Research page: subscribe box above the digest */
+.research-layout .subscribe-box { margin-bottom: 36px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); }
+.research-layout .subscribe-box h2 { font-size: var(--t-lg); }
