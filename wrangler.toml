@@ -1,21 +1,29 @@
-# Cloudflare Pages configuration for craniocalc.com
-# Static files are served from ./public; API routes live in ./functions.
-name = "craniocalc"
-pages_build_output_dir = "public"
+# Cloudflare Worker configuration for craniocalc.com
+# Static files are served from ./public; /api/* is handled by worker/index.js.
+# "name" must match the Worker's name in the Cloudflare dashboard.
+name = "craniocalculator"
+main = "worker/index.js"
 compatibility_date = "2026-10-01"
 
-# KV namespaces. Create them once in the Cloudflare dashboard (Storage & Databases > KV)
-# or with:  npx wrangler kv namespace create RATE_LIMIT   (and SUBMISSIONS)
-# then paste the printed ids below.
-[[kv_namespaces]]
-binding = "RATE_LIMIT"
-id = "REPLACE_WITH_RATE_LIMIT_ID"
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "404-page"
+html_handling = "auto-trailing-slash"
 
-[[kv_namespaces]]
-binding = "SUBMISSIONS"
-id = "REPLACE_WITH_SUBMISSIONS_ID"
+# Form storage (collaboration messages and digest sign-ups).
+# Until these are set, the forms show a friendly "email us instead" message.
+# 1. Cloudflare dashboard > Storage & Databases > KV > Create namespace: RATE_LIMIT, then SUBMISSIONS
+# 2. Paste each namespace ID below and remove the leading "# " from those lines.
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "PASTE_RATE_LIMIT_ID"
+#
+# [[kv_namespaces]]
+# binding = "SUBMISSIONS"
+# id = "PASTE_SUBMISSIONS_ID"
 
-# Secrets: set in the Cloudflare dashboard (Settings > Variables and Secrets), never here:
+# Secrets: set in the Cloudflare dashboard (Worker > Settings > Variables and Secrets), never here:
 #   ADMIN_TOKEN         for /api/admin/export
 #   RATE_SALT           any random string
 #   RESEND_API_KEY, NOTIFY_EMAIL, NOTIFY_FROM   optional email alerts for collaboration messages

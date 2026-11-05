@@ -4,10 +4,11 @@
   "type": "module",
   "description": "craniocalc: craniofacial surgery calculators, outcome models, and a weekly research digest",
   "scripts": {
-    "build": "python3 build.py",
-    "dev": "python3 build.py && npx wrangler pages dev",
+    "build": "echo \"public/ is prebuilt and committed. After editing src/, run: python3 build.py\"",
+    "dev": "python3 build.py && npx wrangler dev",
     "digest": "node scripts/digest.mjs",
-    "test": "node tests/run.mjs"
+    "test": "node tests/run.mjs",
+    "pages": "python3 build.py"
   },
   "engines": {
     "node": ">=18"

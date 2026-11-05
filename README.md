@@ -2,7 +2,7 @@
 
 Calculators for craniofacial surgery, plus a weekly digest of new craniofacial research and a collaboration portal. Domain: **craniocalc.com**.
 
-**Stack:** static HTML/CSS/JS on Cloudflare Pages, with two small Pages Functions for forms. No framework and no build step on the host. The weekly research digest runs on GitHub Actions.
+**Stack:** static HTML/CSS/JS served by a Cloudflare Worker with static assets (`wrangler.toml`), plus a small API in `worker/index.js` for the forms. No framework and no build step on the host. The weekly research digest runs on GitHub Actions.
 
 | Tab | Path | Powered by |
 |---|---|---|
@@ -13,47 +13,24 @@ Calculators for craniofacial surgery, plus a weekly digest of new craniofacial r
 
 ---
 
-## Deploy (about 30 minutes, once)
+## Deploy
 
-### 1. Buy the domain
-Buy `craniocalc.com`. Cloudflare Registrar is simplest because DNS is set up automatically. With another registrar (Porkbun, Namecheap), change the nameservers to Cloudflare's after you add the site there.
+The repo is `aidingharavi/craniocalculator`, connected to a Cloudflare **Worker** named `craniocalculator`. Every push to `main` redeploys automatically (Build command `npm run build`, Deploy command `npx wrangler deploy`, both already set). The `name` in `wrangler.toml` must stay the same as the Worker's name.
 
-### 2. Put the code on GitHub
-Create a free GitHub account and a new **private** repository called `craniocalc`. Upload this folder (GitHub's "Add file → Upload files", or `git push`).
+### Domain (bought at GoDaddy, DNS on Cloudflare)
+1. GoDaddy nameservers point to the two Cloudflare nameservers shown under the craniocalc.com site in Cloudflare.
+2. When Cloudflare shows craniocalc.com as **Active**: Worker → **Settings → Domains & Routes → Add → Custom domain** → `craniocalc.com`, then again for `www.craniocalc.com`.
+3. Email: craniocalc.com → **Email → Email Routing** → forward `hello@craniocalc.com` to your inbox.
 
-### 3. Create the Cloudflare Pages project
-Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git** → pick the repo.
-Build settings: **Framework preset: None**, **Build command: empty**, **Build output directory: `public`**. Deploy.
-You get a `*.pages.dev` URL; the calculators work right away.
+### Forms storage (collaboration messages and digest sign-ups)
+1. **Storage & Databases → KV → Create namespace**: `RATE_LIMIT`, then `SUBMISSIONS`.
+2. Copy each namespace ID into `wrangler.toml` (the commented `[[kv_namespaces]]` blocks) and uncomment them. Push, or send the IDs to Claude to do it.
+3. Worker → **Settings → Variables and Secrets**: add `ADMIN_TOKEN` and `RATE_SALT` (any long random strings). Optional: `RESEND_API_KEY`, `NOTIFY_EMAIL`, `NOTIFY_FROM` to get an email for each collaboration message.
 
-### 4. Storage for forms
-Dashboard → **Storage & Databases → KV → Create namespace** twice: `RATE_LIMIT` and `SUBMISSIONS`.
-Pages project → **Settings → Bindings → Add → KV namespace**, using exactly those variable names.
+Until step 2 is done the forms show "email us instead," and everything else works.
 
-### 5. Secrets
-Pages project → **Settings → Variables and Secrets** (Production):
-
-| Name | Required | What it's for |
-|---|---|---|
-| `ADMIN_TOKEN` | yes | any long random string; lets you export form submissions |
-| `RATE_SALT` | yes | any random string |
-| `RESEND_API_KEY`, `NOTIFY_EMAIL`, `NOTIFY_FROM` | optional | resend.com, to get an email whenever someone sends a collaboration message |
-
-Then redeploy (Deployments → ⋯ → Retry deployment).
-
-### 6. Connect the domain
-Pages project → **Custom domains → Set up a domain** → `craniocalc.com`, then again for `www.craniocalc.com`.
-
-### 7. Email address
-Cloudflare → your domain → **Email → Email Routing** → forward `hello@craniocalc.com` to your inbox (free).
-
-### 8. Turn on the weekly research digest
-GitHub repo → **Settings → Secrets and variables → Actions** → add:
-- `ANTHROPIC_API_KEY` (console.anthropic.com; set a monthly spend limit there)
-- `NCBI_API_KEY` (free, from your NCBI account settings)
-- `NCBI_EMAIL` (your contact email)
-
-Then **Actions → Weekly digest → Run workflow** to publish the first issue. After that it runs every Monday morning, commits the issue, and Cloudflare redeploys automatically.
+### Weekly research digest
+GitHub repo → **Settings → Secrets and variables → Actions** → add `ANTHROPIC_API_KEY` (set a spend limit at console.anthropic.com), `NCBI_API_KEY`, and `NCBI_EMAIL`. Then **Actions → Weekly digest → Run workflow** to publish the first issue. It then runs every Monday, commits the issue, and the push redeploys the site.
 
 ---
 
@@ -79,7 +56,7 @@ The page computes 1 / (1 + e^−LP) in the browser, shows the coefficient and od
 
 ## Everyday edits
 - **Meeting dates:** `public/data/meetings.json`. Past meetings disappear automatically.
-- **Page text, header, footer:** files in `src/`, then `python3 build.py` (regenerates `public/`). Commit both.
+- **Page text, header, footer:** files in `src/`, then `python3 build.py` (regenerates `public/`). Commit both. (`public/` is committed, so the Cloudflare build doesn't need Python.)
 - **Colors and type:** tokens at the top of `public/assets/css/site.css`.
 - **Logo:** `public/assets/img/logo.svg` and `public/favicon.svg` (the skull from the CranioSTRIP mark, without the blood drop).
 - **Export messages:**
@@ -90,12 +67,12 @@ The page computes 1 / (1 + e^−LP) in the browser, shows the coefficient and od
 Sign-ups are stored in KV. When the list is worth it, export it and import it into a newsletter service (Buttondown, Beehiiv, Resend Broadcasts). Most can send automatically from the RSS feed at `/research.xml`.
 
 ## Costs
-Cloudflare Pages, KV, and Email Routing are free at this scale, and so are GitHub Actions and PubMed. The only usage-based cost is the Claude API for the weekly digest: two calls per week.
+Cloudflare Workers (free plan), KV, and Email Routing are free at this scale, and so are GitHub Actions and PubMed. The only usage-based cost is the Claude API for the weekly digest: two calls per week.
 
 ## Local development
 ```bash
 cp .dev.vars.example .dev.vars
-npx wrangler pages dev           # http://localhost:8788
+npx wrangler dev                 # http://localhost:8787
 node tests/run.mjs               # offline tests (mocked PubMed and Claude)
 node scripts/digest.mjs          # build a digest issue (needs network + keys)
 ```
@@ -108,7 +85,7 @@ node scripts/digest.mjs          # build a digest issue (needs network + keys)
 - **Commitments on the site** to review: the ICMJE authorship statement on the collaboration page.
 
 ## Earlier features
-Literature search (PubMed + Claude), a clinical trials finder, and a resources page were part of the first version. They're preserved in the first git commit (`git show HEAD~1 --stat`) if you want any of them back.
+Literature search (PubMed + Claude), a clinical trials finder, and a resources page were part of the first version. They're preserved in the first git commit (`the "Initial craniofacial.ai site" commit in the original project`) if you want any of them back.
 
 ## Design notes
 Palette: cool lightbox paper (`#f2f4f3`), slate ink (`#16232b`), and gentian violet (`#5b3fa0`), the surgical skin-marker ink, as the single accent. Type: Bricolage Grotesque (interface) and Source Serif 4 (reading text), self-hosted under the SIL Open Font License. The vertex skull tracing with cranial diagonals is the home page illustration and reappears as the live diagram on the CVAI calculator.
