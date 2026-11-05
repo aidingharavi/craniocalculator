@@ -48,7 +48,9 @@ Copy `examples/logistic-model-example.json` into the `tools` list, set `"group":
 
 The page computes 1 / (1 + e^−LP) in the browser, shows the coefficient and odds-ratio table on the model card, and adds the ACS NSQIP disclaimer automatically. Splines and interactions aren't supported yet; ask and they can be added.
 
-**Machine learning models (CranioSTRIP, speech outcomes):** deploy the Shiny app (shinyapps.io or Posit Connect Cloud), then set `"status": "live"` and `"embedUrl"` to the app URL. The page embeds it above the model card.
+**CranioSTRIP** runs fully in the browser: `public/data/models/craniostrip.json` holds the exported LightGBM (risk) and NGBoost (volume) models, evaluated by `assets/js/craniostrip.js`; the page is `src/pages/calculators/craniostrip.html`. Exported from the deployed Shiny app's model files and checked against Python on 200 random patients (identical to ~1e-16).
+
+**Other machine learning models (speech outcomes):** deploy the Shiny app (shinyapps.io or Posit Connect Cloud), then set `"status": "live"` and `"embedUrl"` to the app URL. The page embeds it above the model card.
 
 **Model card fields** (any left empty are hidden): `intendedUse`, `outcome`, `inputs`, `development`, `validation` (list of `{cohort, n, auc, calibrationSlope, brier}`), `limitations`, `citation`, `code`, `version`, `updated`.
 
