@@ -399,4 +399,58 @@
     mf.addEventListener("input", update);
     update();
   }
+  /* ---------- Sunnybrook Facial Grading System ---------- */
+  const sb = document.getElementById("sb-calc");
+  if (sb) {
+    const out = document.getElementById("sb-out");
+    const MOVE = ["1: None", "2: Slight", "3: Mild", "4: Near complete", "5: Complete"];
+    const SYNK = ["0: None", "1: Mild", "2: Moderate", "3: Severe"];
+    sb.querySelectorAll("[data-move]").forEach((el) => {
+      el.innerHTML = MOVE.map((t, i) => `<option value="${i + 1}"${i === 4 ? " selected" : ""}>${t}</option>`).join("");
+    });
+    sb.querySelectorAll("[data-synk]").forEach((el) => {
+      el.innerHTML = SYNK.map((t, i) => `<option value="${i}">${t}</option>`).join("");
+    });
+    const sum = (sel) => [...sb.querySelectorAll(sel)].reduce((a, el) => a + Number(el.value), 0);
+    const update = () => {
+      const rest = sum("[data-rest]") * 5;
+      const move = sum("[data-move]") * 4;
+      const synk = sum("[data-synk]");
+      const composite = move - rest - synk;
+      out.innerHTML = `
+        <div class="value">${composite}<small>of 100</small></div>
+        <div class="grade">Composite score</div>
+        <div class="sub">Voluntary movement ${move} − resting symmetry ${rest} − synkinesis ${synk}.</div>`;
+    };
+    sb.addEventListener("change", update);
+    update();
+  }
+
+  /* ---------- Pittsburgh Weighted Speech Score ---------- */
+  const pw = document.getElementById("pw-calc");
+  if (pw) {
+    const out = document.getElementById("pw-out");
+    const BANDS = [
+      { band: 0, max: 0, label: "Competent" },
+      { band: 1, max: 2, label: "Borderline competent" },
+      { band: 2, max: 6, label: "Borderline incompetent" },
+      { band: 3, max: Infinity, label: "Incompetent" },
+    ];
+    const update = () => {
+      const emission = pw.querySelector("[data-emission]:checked") ? 3 : 0;
+      const grimace = document.getElementById("pw-grimace").checked ? 2 : 0;
+      const nasality = Number(document.getElementById("pw-nasality").value);
+      const phonation = Number(document.getElementById("pw-phonation").value);
+      const artic = [...pw.querySelectorAll("[data-artic]:checked")].reduce((a, el) => a + Number(el.dataset.artic), 0);
+      const total = emission + grimace + nasality + phonation + artic;
+      const B = BANDS.find((b) => total <= b.max);
+      pw.querySelectorAll("#pw-scale li").forEach((li) => li.classList.toggle("on", Number(li.dataset.band) === B.band));
+      out.innerHTML = `
+        <div class="value">${total}</div>
+        <div class="grade">${B.label}</div>
+        <div class="sub">Nasal emission ${emission}, facial grimace ${grimace}, nasality ${nasality}, phonation ${phonation}, articulation ${artic}.</div>`;
+    };
+    pw.addEventListener("change", update);
+    update();
+  }
 })();

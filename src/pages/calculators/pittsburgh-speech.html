@@ -1,0 +1,89 @@
+<!--{"title": "Pittsburgh Weighted Speech Score Calculator", "description": "Calculate the Pittsburgh Weighted Speech Score for velopharyngeal function from nasal emission, facial grimace, nasality, phonation, and articulation.", "nav": "calculators", "scripts": ["calc.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Pittsburgh Weighted Speech Score</h1>
+    <p class="lede">Perceptual speech rating for velopharyngeal function, used after cleft palate repair and in evaluating velopharyngeal insufficiency.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="pw-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <h3 class="small cs-step">Nasal emission</h3>
+      <div class="field"><label class="check-input"><input type="checkbox" data-emission> Audible nasal emission present</label></div>
+      <div class="field"><label class="check-input"><input type="checkbox" data-emission> Nasal turbulence present</label></div>
+      <p class="hint" style="margin-top:-6px">Scored 3 if either is present.</p>
+
+      <h3 class="small cs-step">Facial grimace</h3>
+      <div class="field"><label class="check-input"><input type="checkbox" id="pw-grimace"> Facial grimace present (2)</label></div>
+
+      <h3 class="small cs-step">Nasality and phonation</h3>
+      <div class="field-row">
+        <div class="field">
+          <label for="pw-nasality">Nasality</label>
+          <select id="pw-nasality">
+            <option value="0">Normal (0)</option>
+            <option value="1">Mild hypernasality (1)</option>
+            <option value="2">Moderate hypernasality (2)</option>
+            <option value="3">Moderate hypernasality (3)</option>
+            <option value="4">Severe hypernasality (4)</option>
+            <option value="2">Hypo-hypernasality (2)</option>
+            <option value="2">Cul-de-sac (2)</option>
+            <option value="0">Hyponasality (0)</option>
+          </select>
+          <p class="hint">Moderate hypernasality is scored 2 or 3 at the rater's judgment.</p>
+        </div>
+        <div class="field">
+          <label for="pw-phonation">Phonation</label>
+          <select id="pw-phonation">
+            <option value="0">Normal (0)</option>
+            <option value="1">Mild hoarseness or breathiness (1)</option>
+            <option value="2">Moderate hoarseness or breathiness (2)</option>
+            <option value="3">Severe hoarseness or breathiness (3)</option>
+            <option value="2">Reduced loudness (2)</option>
+            <option value="3">Tension in system (3)</option>
+          </select>
+        </div>
+      </div>
+
+      <h3 class="small cs-step">Articulation</h3>
+      <p class="hint" style="margin-top:0">Check every error pattern present. Developmental errors, errors unrelated to velopharyngeal function, and errors from anterior dentition score 0.</p>
+      <fieldset class="field cs-checks">
+        <legend class="visually-hidden">Articulation errors</legend>
+        <label class="check"><input type="checkbox" data-artic="1"> Reduced intraoral pressure for sibilants (1)</label>
+        <label class="check"><input type="checkbox" data-artic="2"> Reduced intraoral pressure for other fricatives (2)</label>
+        <label class="check"><input type="checkbox" data-artic="3"> Reduced intraoral pressure for plosives (3)</label>
+        <label class="check"><input type="checkbox" data-artic="2"> Omission of fricatives or plosives (2)</label>
+        <label class="check"><input type="checkbox" data-artic="3"> Omission of fricatives or plosives plus hard glottal attack for vowels (3)</label>
+        <label class="check"><input type="checkbox" data-artic="2"> Lingual-palatal sibilants (2)</label>
+        <label class="check"><input type="checkbox" data-artic="3"> Pharyngeal fricatives, plosives, backing, snorts, inhalations, or exhalation substitutions (3)</label>
+        <label class="check"><input type="checkbox" data-artic="3"> Glottal stops (3)</label>
+        <label class="check"><input type="checkbox" data-artic="4"> Nasal substitutions for pressure sounds (4)</label>
+      </fieldset>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">Total = nasal emission + facial grimace + nasality + phonation + articulation</span></p>
+      <p>Each speech symptom associated with velopharyngeal incompetence is weighted by how strongly it suggests an inadequate velopharyngeal valve. Nasal emission scores 3 when audible emission or nasal turbulence is present. Articulation points are summed across all error patterns present. The total estimates the probable nature of the velopharyngeal valve: 0 competent, 1 to 2 borderline competent, 3 to 6 borderline incompetent, and 7 or more incompetent.</p>
+      <p>The score is a perceptual screen and should be interpreted alongside instrumental assessment such as nasometry, nasendoscopy, or videofluoroscopy when surgery for velopharyngeal insufficiency is being considered.</p>
+      <p class="small muted">Sources: McWilliams BJ, Philips BJ. <em>Velopharyngeal Incompetence: Audio Seminars in Speech Pathology.</em> Philadelphia: W.B. Saunders; 1979. Item weights as listed on the University of Pittsburgh scoring form (version 4, 2011).</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="pw-out">
+        <div class="value">0</div>
+        <div class="grade">Competent</div>
+      </div>
+      <ol class="scale" id="pw-scale" aria-label="Probable nature of the velopharyngeal valve">
+        <li data-band="0"><span>0</span><span>Competent</span><span class="range"></span></li>
+        <li data-band="1"><span>1 to 2</span><span>Borderline competent</span><span class="range"></span></li>
+        <li data-band="2"><span>3 to 6</span><span>Borderline incompetent</span><span class="range"></span></li>
+        <li data-band="3"><span>7 or more</span><span>Incompetent</span><span class="range"></span></li>
+      </ol>
+    </div>
+  </div>
+</section>

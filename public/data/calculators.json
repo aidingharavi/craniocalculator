@@ -151,6 +151,32 @@
       "status": "live"
     },
     {
+      "id": "pittsburgh-speech",
+      "group": "established",
+      "kind": "reference",
+      "name": "Pittsburgh Weighted Speech Score",
+      "summary": "Perceptual rating of velopharyngeal function from nasal emission, grimace, nasality, phonation, and articulation.",
+      "keywords": [
+        "velopharyngeal insufficiency",
+        "VPI",
+        "velopharyngeal dysfunction",
+        "velopharyngeal incompetence",
+        "hypernasality",
+        "nasal emission",
+        "cleft palate",
+        "cleft speech",
+        "speech",
+        "palatoplasty",
+        "pharyngeal flap",
+        "sphincter pharyngoplasty",
+        "Furlow",
+        "PWSS",
+        "compensatory articulation"
+      ],
+      "href": "/calculators/pittsburgh-speech",
+      "status": "live"
+    },
+    {
       "id": "fiss",
       "group": "established",
       "kind": "reference",
@@ -173,6 +199,30 @@
         "injury severity"
       ],
       "href": "/calculators/fiss",
+      "status": "live"
+    },
+    {
+      "id": "sunnybrook",
+      "group": "established",
+      "kind": "reference",
+      "name": "Sunnybrook Facial Grading System",
+      "summary": "Composite facial nerve function score (0 to 100) from resting symmetry, voluntary movement, and synkinesis.",
+      "keywords": [
+        "facial paralysis",
+        "facial palsy",
+        "facial nerve",
+        "Bell's palsy",
+        "synkinesis",
+        "facial reanimation",
+        "smile reanimation",
+        "gracilis",
+        "cross-face nerve graft",
+        "nerve transfer",
+        "House-Brackmann",
+        "facial asymmetry",
+        "Moebius"
+      ],
+      "href": "/calculators/sunnybrook",
       "status": "live"
     },
     {

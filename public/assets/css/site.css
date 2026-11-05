@@ -548,3 +548,17 @@ input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-o
 
 /* Header logo: line art in the theme's ink color; <picture> swaps the dark-mode version */
 .logo-mark { display: block; flex: none; }
+
+/* Sunnybrook expression grid */
+.sb-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr); gap: 8px 10px; align-items: center; }
+.sb-colhead { font-size: var(--t-xs); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-2); }
+.sb-expr { font-weight: 500; font-size: .95rem; }
+.sb-cell { display: block; margin: 0; font-weight: 400; }
+.sb-mini { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 520px) {
+  .sb-grid { grid-template-columns: 1fr; gap: 8px; }
+  .sb-colhead, .sb-grid > span:first-child { display: none; }
+  .sb-expr { margin-top: 10px; }
+  .sb-cell { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); align-items: center; gap: 10px; }
+  .sb-mini { position: static; width: auto; height: auto; overflow: visible; clip: auto; font-size: var(--t-sm); color: var(--ink-2); }
+}

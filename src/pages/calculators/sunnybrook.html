@@ -1,0 +1,79 @@
+<!--{"title": "Sunnybrook Facial Grading System Calculator", "description": "Calculate the Sunnybrook Facial Grading System composite score (0 to 100) from resting symmetry, symmetry of voluntary movement, and synkinesis.", "nav": "calculators", "scripts": ["calc.js"]}-->
+<section class="page-head">
+  <div class="wrap">
+    <p class="small"><a href="/calculators/">Calculators</a></p>
+    <h1>Sunnybrook Facial Grading System</h1>
+    <p class="lede">Composite facial nerve function score from resting symmetry, voluntary movement, and synkinesis, each graded against the normal side.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="calc" id="sb-calc">
+    <div class="calc-left">
+    <form class="calc-panel" novalidate>
+      <h3 class="small cs-step">Resting symmetry</h3>
+      <div class="field">
+        <label for="sb-eye">Eye (palpebral fissure)</label>
+        <select id="sb-eye" data-rest>
+          <option value="0">Normal (0)</option>
+          <option value="1">Narrow (1)</option>
+          <option value="1">Wide (1)</option>
+          <option value="1">Eyelid surgery (1)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sb-cheek">Cheek (nasolabial fold)</label>
+        <select id="sb-cheek" data-rest>
+          <option value="0">Normal (0)</option>
+          <option value="2">Absent (2)</option>
+          <option value="1">Less pronounced (1)</option>
+          <option value="1">More pronounced (1)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sb-mouth">Mouth</label>
+        <select id="sb-mouth" data-rest>
+          <option value="0">Normal (0)</option>
+          <option value="1">Corner drooped (1)</option>
+          <option value="1">Corner pulled up or out (1)</option>
+        </select>
+      </div>
+
+      <h3 class="small cs-step">Voluntary movement and synkinesis</h3>
+      <p class="hint" style="margin-top:0">Movement: degree of muscle excursion compared with the normal side. Synkinesis: involuntary muscle contraction with each expression.</p>
+      <div class="sb-grid" role="group" aria-label="Standard expressions">
+        <span></span><span class="sb-colhead">Movement</span><span class="sb-colhead">Synkinesis</span>
+        <span class="sb-expr">Forehead wrinkle</span>
+        <label class="sb-cell"><span class="sb-mini">Movement</span><select data-move aria-label="Forehead wrinkle, movement"></select></label><label class="sb-cell"><span class="sb-mini">Synkinesis</span><select data-synk aria-label="Forehead wrinkle, synkinesis"></select></label>
+        <span class="sb-expr">Gentle eye closure</span>
+        <label class="sb-cell"><span class="sb-mini">Movement</span><select data-move aria-label="Gentle eye closure, movement"></select></label><label class="sb-cell"><span class="sb-mini">Synkinesis</span><select data-synk aria-label="Gentle eye closure, synkinesis"></select></label>
+        <span class="sb-expr">Open mouth smile</span>
+        <label class="sb-cell"><span class="sb-mini">Movement</span><select data-move aria-label="Open mouth smile, movement"></select></label><label class="sb-cell"><span class="sb-mini">Synkinesis</span><select data-synk aria-label="Open mouth smile, synkinesis"></select></label>
+        <span class="sb-expr">Snarl</span>
+        <label class="sb-cell"><span class="sb-mini">Movement</span><select data-move aria-label="Snarl, movement"></select></label><label class="sb-cell"><span class="sb-mini">Synkinesis</span><select data-synk aria-label="Snarl, synkinesis"></select></label>
+        <span class="sb-expr">Lip pucker</span>
+        <label class="sb-cell"><span class="sb-mini">Movement</span><select data-move aria-label="Lip pucker, movement"></select></label><label class="sb-cell"><span class="sb-mini">Synkinesis</span><select data-synk aria-label="Lip pucker, synkinesis"></select></label>
+      </div>
+    </form>
+
+    <div class="method prose">
+      <h2>Method</h2>
+      <p><span class="formula">Composite = voluntary movement score − resting symmetry score − synkinesis score</span></p>
+      <ul>
+        <li><strong>Resting symmetry score</strong> = (eye + cheek + mouth) × 5, range 0 to 20.</li>
+        <li><strong>Voluntary movement score</strong> = sum of the five expressions × 4, range 20 to 100. Each expression is graded 1 (unable to initiate movement), 2 (initiates slight movement), 3 (initiates movement with mild excursion), 4 (movement almost complete), or 5 (movement complete).</li>
+        <li><strong>Synkinesis score</strong> = sum of the five expressions, range 0 to 15. Each is graded 0 (none), 1 (mild, slight synkinesis), 2 (moderate, obvious but not disfiguring), or 3 (severe, disfiguring synkinesis or gross mass movement of several muscles).</li>
+      </ul>
+      <p>The weights were chosen so that normal facial function scores 100 and complete paralysis scores 0. The system was designed to detect change over time, so it is most useful for tracking a patient before and after treatment. Unlike the House-Brackmann scale, it grades each region separately and has no fixed severity categories.</p>
+      <p class="small muted">Source: Ross BG, Fradet G, Nedzelski JM. Development of a sensitive clinical facial grading system. <em>Otolaryngol Head Neck Surg.</em> 1996;114(3):380–386. <a href="https://doi.org/10.1016/S0194-59989670206-1" target="_blank" rel="noopener">doi:10.1016/S0194-59989670206-1</a>.</p>
+    </div>
+    </div>
+
+    <div aria-live="polite">
+      <div class="readout" id="sb-out">
+        <div class="value">–</div>
+        <div class="grade muted">Grade each item</div>
+      </div>
+    </div>
+  </div>
+</section>
