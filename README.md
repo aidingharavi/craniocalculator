@@ -17,9 +17,7 @@ Calculators for craniofacial surgery, plus a weekly digest of new craniofacial r
 
 The repo is `aidingharavi/craniocalculator`, connected to a Cloudflare **Worker** named `craniocalculator`. Every push to `main` redeploys automatically (Build command `npm run build`, Deploy command `npx wrangler deploy`, both already set). The `name` in `wrangler.toml` must stay the same as the Worker's name.
 
-### Domain (bought at GoDaddy, DNS on Cloudflare)
-1. GoDaddy nameservers point to the two Cloudflare nameservers shown under the craniocalc.com site in Cloudflare.
-2. When Cloudflare shows craniocalc.com as **Active**: Worker → **Settings → Domains & Routes → Add → Custom domain** → `craniocalc.com`, then again for `www.craniocalc.com`.
+### Domain
 3. Email: craniocalc.com → **Email → Email Routing** → forward `hello@craniocalc.com` to your inbox.
 
 ### Forms storage (collaboration messages and digest sign-ups)
